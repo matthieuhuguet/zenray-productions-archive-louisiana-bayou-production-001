@@ -59,7 +59,7 @@ for pid, prs in pieces.items():
     u0, u1, v0, v1 = slots[slot - 1]['uv']
     ku = (u1 - u0) / SLOT_W_M; kv = (v1 - v0) / SLOT_H_M
     crop = min(I['w'], SLOT_W_M) * ku
-    ua = u0 + r_a * max((u1 - u0) - crop, 0.0)             # crop start inside the slot
+    ua = u0                                                # 9 October 2026 (Matthieu) : tiles are glued to the LEFT edge and the BOTTOM edge of their slot, always ; the brighter lower rim of the sheet must line up on every tile. FR : collé à gauche et en bas du slot, toujours.
     ub_side = [u0 + r_b * max((u1 - u0) - I['T'] * ku, 0.0), u0 + r_c * max((u1 - u0) - I['T'] * ku, 0.0)]
     for pr in prs:
         nrm = pr.normal(); nt = I['n']

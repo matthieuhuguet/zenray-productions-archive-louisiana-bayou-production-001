@@ -3,6 +3,7 @@ import hou
 geo = hou.pwd().geometry()
 CROSSBAR_DEPTH_RATIO = 0.78
 PX_PER_M = 1024.0
+SINK = 0.18   # 9 October 2026 : the whole cross sinks into the ridge so it no longer floats. FR : la croix s'enfonce dans le faîtage, elle ne flotte plus.
 if geo.findPrimAttrib('px_per_m') is None: geo.addAttrib(hou.attribType.Prim, 'px_per_m', 0.0)
 pieces = {}
 for pr in geo.prims(): pieces.setdefault(pr.attribValue('piece_id'), []).append(pr)
@@ -25,4 +26,10 @@ if post and bar:
                 if pt.number() in done: continue
                 done.add(pt.number()); p = pt.position(); pt.setPosition((p[0], p[1], zc + (p[2] - (lo[2] + hi[2]) / 2.0) * CROSSBAR_DEPTH_RATIO))
     for prs, lo, hi in (post, bar):
-        for pr in prs: pr.setAttribValue('px_per_m', PX_PER_M)
+        done2 = set()
+        for pr in prs:
+            pr.setAttribValue('px_per_m', PX_PER_M)
+            for v in pr.vertices():
+                pt = v.point()
+                if pt.number() in done2: continue
+                done2.add(pt.number()); p = pt.position(); pt.setPosition((p[0], p[1] - SINK, p[2]))
