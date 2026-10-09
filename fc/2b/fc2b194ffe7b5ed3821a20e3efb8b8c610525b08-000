@@ -62,7 +62,7 @@ for key, title, litname, yaw, pit in rows:
     lit = lit.crop((0, max(0, (lit.size[1] - PW) // 2), PW, max(0, (lit.size[1] - PW) // 2) + min(PW, lit.size[1])))
     panels = [lit, render(data[key], yaw, pit), uvpanel(data[key])]
     for i, im in enumerate(panels): sheet.paste(im, (40 + i * (PW + 40), y))
-    for i, t in enumerate(['Cycles, base colour lit in the scene', 'Geometry coloured by group', 'UV islands on the sheet, coloured by group (bands outlined)']): d.text((40 + i * (PW + 40) + 16, y + 12), t, fill=(255, 255, 255), font=SANS(28), stroke_width=2, stroke_fill=(0, 0, 0))
+    for i, t in enumerate(['Viewport OBJ, base colour textured', 'Geometry coloured by group', 'UV islands on the sheet, coloured by group (bands outlined)']): d.text((40 + i * (PW + 40) + 16, y + 12), t, fill=(255, 255, 255), font=SANS(28), stroke_width=2, stroke_fill=(0, 0, 0))
     y += PW + 70
 d.text((40, y), 'Legend', fill=(255, 255, 255), font=SANS(36)); y += 56
 for i, (k, c) in enumerate([(k, c) for k, c in COL.items() if k != 'slat_L']):     # slats are one group, one red

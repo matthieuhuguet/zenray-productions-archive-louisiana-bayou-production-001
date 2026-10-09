@@ -69,4 +69,5 @@ for p in church.prims():
     g = p.attribValue('grp'); cc = p.boundingBox().center()
     if g in ('slat_L', 'slat_R', 'rail') and cc[0] < -2.9 and abs(cc[2] - 3.93) < 1.3 and cc[1] < 3.6: sym[('slat' if g.startswith('slat') else 'rail', 'R' if cc[2] > 3.93 else 'L')] += 1
 add('both shutters of a window have the same slat and rail counts', sym[('slat', 'L')] == sym[('slat', 'R')] and sym[('rail', 'L')] == sym[('rail', 'R')], str(dict((str(k), v) for k, v in sym.items())))
+add('N (normals) is a vertex attribute at the lookdev output', look.findVertexAttrib('N') is not None and look.findPointAttrib('N') is None, 'vertex=%s point=%s' % (look.findVertexAttrib('N') is not None, look.findPointAttrib('N') is not None))
 result = {'pass': all(c['ok'] for c in checks), 'checks': checks}
