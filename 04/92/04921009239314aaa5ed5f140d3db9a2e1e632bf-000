@@ -16,7 +16,9 @@ flags = {n: n.isDisplayFlagSet() for n in hou.node('/obj').children() if hasattr
 for n in flags:
     if n.name() != 'cam_debug_capture': n.setDisplayFlag(n.name() in SHOW)
 done = []
+ds_ = vp.settings().displaySet(hou.displaySetType.DisplayModel); old_shade = ds_.shadedMode()
 try:
+    ds_.setShadedMode(hou.glShadingType.SmoothWire if False else hou.glShadingType.Smooth)          # 9 October 2026 : always capture shaded, whatever the viewer was left on. FR : toujours en ombré.
     for name, pos, tgt, focal in views:
         cam.parm('resx').set(W); cam.parm('resy').set(H); cam.parm('aspect').set(1.0)      # 9 October 2026 : the camera resolution MUST match the flipbook resolution, otherwise the capture is stretched (Matthieu, 9 October 2026). FR : la résolution de la caméra doit égaler celle du flipbook, sinon l'image est étirée.
         cam.parm('focal').set(focal); cam.parmTuple('t').set(pos)
@@ -26,6 +28,9 @@ try:
         fb.output(p); fb.outputToMPlay(False); fb.useResolution(True); fb.resolution((W, H)); fb.cropOutMaskOverlay(True); fb.frameRange((hou.frame(), hou.frame()))
         sv.flipbook(vp, fb); done.append(p)
 finally:
+    try:
+        if old_shade is not None: ds_.setShadedMode(old_shade)
+    except Exception: pass
     for n, f in flags.items():
         try: n.setDisplayFlag(f)
         except Exception: pass
