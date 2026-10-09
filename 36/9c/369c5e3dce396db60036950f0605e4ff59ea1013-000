@@ -35,7 +35,7 @@ add('glass has no uv on the wood sheet', glass_on_wood == 0, '%d glass faces car
 names = collections.Counter(p.attribValue('name') for p in look.prims())
 add('no prim without a material name', names.get('church', 0) == 0, str(dict(names)))
 stair = collections.Counter(p.attribValue('stair_part') for p in church.prims() if p.attribValue('grp') == 'stair_wood')
-add('stair wood is the railing and the 5 step planks (30 faces), never the deck', set(stair) <= {'rail', 'baluster', 'newel', 'newel_cap', 'ball', 'tread'} and stair.get('tread', 0) == 30, str(dict(stair)))
+add('stair wood is the railing and the 5 step planks (at least 30 faces, more once bevelled), never the deck', set(stair) <= {'rail', 'baluster', 'newel', 'newel_cap', 'ball', 'tread'} and stair.get('tread', 0) >= 30, str(dict(stair)))
 
 # (8) slat shaped pieces outside the slat groups : the bug of 9 October 2026 (96 slats fell into 'frame' because the id tables ended too early). FR : aucune pièce en forme de lamelle hors des groupes de lamelles.
 parent = {}
