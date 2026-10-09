@@ -1,0 +1,42 @@
+# 9 October 2026 : window wood UV for the stair wood pieces. EN: every face is mapped in its own plane (u along its longest edge, v across), islands of one piece share a random u start on one plank band of the shutter trim sheet, one shared density so the grain has the same size on treads, rails and balusters; balls are wrapped around their axis inside one band so no face is stretched. FR : UV bois des fenêtres pour marches, rampes, balustres, poteaux, boules : une planche de la feuille par classe, même densité partout, boules enroulées.
+import hou, math, random
+import numpy as np
+geo = hou.pwd().geometry()
+BAND = {'tread': (0.825, 0.990), 'rail': (0.675, 0.805), 'baluster': (0.675, 0.805), 'newel': (0.825, 0.990), 'newel_cap': (0.825, 0.990), 'ball': (0.675, 0.805)}
+U0, U1 = 0.012, 0.988
+sel = [pr for pr in geo.prims() if pr.attribValue('grp') == 'stair_wood']
+if geo.findVertexAttrib('uv') is None: geo.addAttrib(hou.attribType.Vertex, 'uv', (0.0, 0.0, 0.0))
+def frame(pr):
+    P = np.array([v.point().position() for v in pr.vertices()], float); n = np.array(pr.normal())
+    best, ev = -1, None
+    for i in range(len(P)):
+        e = P[(i + 1) % len(P)] - P[i]; l = np.linalg.norm(e)
+        if l > best: best, ev = l, e
+    eu = ev / max(np.linalg.norm(ev), 1e-9); ev2 = np.cross(n, eu); return P, eu, ev2 / max(np.linalg.norm(ev2), 1e-9)
+isl = []
+for pr in sel:
+    part = pr.attribValue('stair_part')
+    if part == 'ball': continue
+    P, eu, ev = frame(pr); a = P @ eu; b = P @ ev
+    isl.append({'pr': pr, 'part': part, 'a': a, 'b': b, 'w': a.max() - a.min(), 'h': b.max() - b.min(), 'pid': pr.attribValue('piece_id')})
+D = 1e9
+for part in {i['part'] for i in isl}:
+    items = [i for i in isl if i['part'] == part]; lo, hi = BAND[part]
+    D = min(D, (U1 - U0) / max(i['w'] for i in items), (hi - lo - 0.01) / max(i['h'] for i in items))
+D = min(D, 0.55)
+for it in isl:
+    lo, hi = BAND[it['part']]; rnd = random.Random(it['pid'] * 131 + 7); room = max(0.0, (U1 - U0) - it['w'] * D); us = U0 + rnd.random() * room
+    for v, a, b in zip(it['pr'].vertices(), it['a'], it['b']):
+        v.setAttribValue('uv', (float(us + (a - it['a'].min()) * D), float(lo + 0.005 + (b - it['b'].min()) * D), 0.0))
+balls = {}
+for pr in sel:
+    if pr.attribValue('stair_part') == 'ball': balls.setdefault(pr.attribValue('piece_id'), []).append(pr)
+for pid, prs in balls.items():
+    P = np.array([v.point().position() for pr in prs for v in pr.vertices()], float); c = P.mean(axis=0); R = max(np.ptp(P[:, 0]), np.ptp(P[:, 2])) / 2; ymin = P[:, 1].min(); lo, hi = BAND['ball']
+    rnd = random.Random(pid * 17 + 3); us = U0 + rnd.random() * 0.5
+    for pr in prs:
+        ang = [math.atan2(v.point().position()[0] - c[0], v.point().position()[2] - c[2]) for v in pr.vertices()]
+        a0 = ang[0]
+        for v, a in zip(pr.vertices(), ang):
+            da = (a - a0 + math.pi) % (2 * math.pi) - math.pi
+            v.setAttribValue('uv', (float(us + (a0 + da) * R * D), float(lo + 0.005 + (v.point().position()[1] - ymin) * D), 0.0))
