@@ -17,7 +17,8 @@ def classify(prs):
     if sx <= 0.09 and sz <= 0.09 and sy > 0.5: return 'newel'
     if sx <= 0.09 and sz <= 0.09 and sy <= 0.07: return 'newel_cap'
     return 'support'
-WOOD_PARTS = {'ball', 'tread', 'rail', 'baluster', 'newel', 'newel_cap'}
+# 9 October 2026 (Matthieu) : only the railing system uses the window wood; treads, landing, supports and skirts stay white paint. FR : seule la rampe prend le bois des fenêtres, marches, palier et supports restent en peinture blanche.
+WOOD_PARTS = {'ball', 'rail', 'baluster', 'newel', 'newel_cap'}
 for pid, prs in pieces.items():
     part = classify(prs)
     for pr in prs:

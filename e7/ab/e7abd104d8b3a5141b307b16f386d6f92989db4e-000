@@ -1,0 +1,56 @@
+# 9 October 2026 : shutter UV by PIECE frame. EN: every louver slat is one board; its PCA axes give length L (along the shutter width), width W (up the slope) and thickness T. Front and back faces fill the whole louver of the trim sheet (u along L, v along W); the thin top edge samples the top bevel strip of the same louver, the bottom edge the bottom strip, the two ends a small patch, so nothing is stretched or pale. Shutter rails and stiles are mapped on the plank bands with the grain along their long axis. FR : lamelles et traverses de volet : un repère par pièce, front = louvre entier, tranches = bandes du même louvre.
+import hou, math, random
+import numpy as np
+geo = hou.pwd().geometry()
+SEAMS = [0.0, 0.111, 0.212, 0.313, 0.421]; MARG = 0.012; LU = (0.03, 0.97)
+PLANK = [(0.825, 0.990), (0.675, 0.805)]
+sel = [pr for pr in geo.prims() if pr.attribValue('grp') in ('slat_L', 'slat_R', 'rail')]
+if geo.findVertexAttrib('uv') is None: geo.addAttrib(hou.attribType.Vertex, 'uv', (0.0, 0.0, 0.0))
+parent = {}
+def find(a):
+    while parent.setdefault(a, a) != a:
+        parent[a] = parent[parent[a]]; a = parent[a]
+    return a
+for pr in sel:
+    pts = [v.point().number() for v in pr.vertices()]
+    for q in pts[1:]: parent[find(q)] = find(pts[0])
+pieces = {}
+for pr in sel: pieces.setdefault((pr.attribValue('grp'), find(pr.vertices()[0].point().number())), []).append(pr)
+def unit(x): return x / max(np.linalg.norm(x), 1e-12)
+def frame_axes(prs):
+    P = np.array([v.point().position() for pr in prs for v in pr.vertices()], float); c = P.mean(axis=0)
+    w, V = np.linalg.eigh(np.cov((P - c).T) + 1e-14 * np.eye(3)); L, W, T = V[:, 2], V[:, 1], V[:, 0]
+    if W[1] < 0: W = -W
+    return P, c, L, W, T
+rail_items = []
+for (gname, key), prs in pieces.items():
+    P, c, L, W, T = frame_axes(prs)
+    a = P @ L; b = P @ W; t = P @ T
+    if gname == 'rail':
+        rail_items.append((key, prs, L, W, T, a.min(), b.min(), np.ptp(a), np.ptp(b))); continue
+    k = int(round(c[1] / 0.02)) % 4; va, vb = SEAMS[k] + MARG, SEAMS[k + 1] - MARG
+    for pr in prs:
+        n = np.array(pr.normal()); dots = [abs(float(n @ L)), abs(float(n @ W)), abs(float(n @ T))]; kind = int(np.argmax(dots))
+        for v in pr.vertices():
+            p = np.array(v.point().position()); ua = (p @ L - a.min()) / max(np.ptp(a), 1e-6); wa = (p @ W - b.min()) / max(np.ptp(b), 1e-6); ta = (p @ T - t.min()) / max(np.ptp(t), 1e-6)
+            if kind == 2: uv = (LU[0] + (LU[1] - LU[0]) * ua, va + (vb - va) * wa)                       # front or back : the whole louver
+            elif kind == 1:
+                vm = (va + vb) / 2                                                                       # 9 October 2026 : edges sample the wood body of the louver, never the dark grooves (they rendered black). FR : les tranches prennent le bois du louvre, pas les rainures noires.
+                if float(n @ W) > 0: uv = (LU[0] + (LU[1] - LU[0]) * ua, vm + 0.012 + 0.020 * ta)       # top edge
+                else: uv = (LU[0] + (LU[1] - LU[0]) * ua, vm - 0.032 + 0.020 * ta)                       # bottom edge
+            else: uv = (0.45 + 0.020 * ta, (va + vb) / 2 - 0.012 + 0.024 * wa)                         # ends : a small patch of wood body (the end caps of the sheet are dark)
+            v.setAttribValue('uv', (float(uv[0]), float(uv[1]), 0.0))
+# rails and stiles of the shutters : plank bands, grain along the long axis, one shared density
+D = 0.55
+for key, prs, L, W, T, a0, b0, wa, wb in rail_items:
+    D = min(D, 0.976 / max(wa, 1e-6), 0.12 / max(wb, 1e-6))
+for key, prs, L, W, T, a0, b0, wa, wb in rail_items:
+    rnd = random.Random(int(key) * 29 + 5); lo, hi = PLANK[rnd.randrange(2)]; us = 0.012 + rnd.random() * max(0.0, 0.976 - wa * D)
+    for pr in prs:
+        for v in pr.vertices():
+            p = np.array(v.point().position()); v.setAttribValue('uv', (float(us + (p @ L - a0) * D), float(lo + 0.006 + (p @ W - b0) * D), 0.0))
+# vestibule transom panes : glass slabs (two big faces + four thin edges) that carried the wall metre UV and no group, so they rendered as wood or default grey. FR : vitres de l'imposte du porche, groupe glass pour prendre le verre.
+for pr in geo.prims():
+    if pr.attribValue('material_id') != 'M_WindowWood_04' or pr.attribValue('grp') != '': continue
+    if geo.findPrimAttrib('stair_part') is not None and pr.attribValue('stair_part') != '': continue
+    pr.setAttribValue('grp', 'glass')
