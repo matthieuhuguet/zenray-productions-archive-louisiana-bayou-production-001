@@ -2,9 +2,9 @@
 import hou, math, random
 import numpy as np
 geo = hou.pwd().geometry()
-BAND = {'rail': (0.675, 0.805), 'baluster': (0.675, 0.805), 'newel': (0.825, 0.990), 'newel_cap': (0.825, 0.990), 'ball': (0.675, 0.805)}
+BAND = {'tread': (0.825, 0.990), 'rail': (0.675, 0.805), 'baluster': (0.675, 0.805), 'newel': (0.825, 0.990), 'newel_cap': (0.825, 0.990), 'ball': (0.675, 0.805)}
 U0, U1 = 0.012, 0.988
-D_MAX = 0.55
+D_MAX = 0.65                       # the WINDOW density (uv per metre) : same texel size on the rail, the step planks and the windows ; a face too long or too tall for its band is scaled down alone
 sel = [pr for pr in geo.prims() if pr.attribValue('grp') == 'stair_wood']
 if geo.findVertexAttrib('uv') is None: geo.addAttrib(hou.attribType.Vertex, 'uv', (0.0, 0.0, 0.0))
 pieces = {}
@@ -33,11 +33,9 @@ for pid, prs in pieces.items():
         e1, e2 = face_frame(ax, n); a = P @ e1; b = P @ e2
         isl.append({'pr': pr, 'part': part, 'a': a, 'b': b, 'w': np.ptp(a), 'h': np.ptp(b), 'pid': pid})
 D = D_MAX
-for part in {i['part'] for i in isl}:
-    items = [i for i in isl if i['part'] == part]; lo, hi = BAND[part]
-    D = min(D, (U1 - U0) / max(i['w'] for i in items), (hi - lo - 0.01) / max(i['h'] for i in items))
 for it in isl:
     lo, hi = BAND[it['part']]; us = U0                                   # bottom left corner of the band, always (Matthieu, 9 October 2026)
+    D = min(D_MAX, (U1 - U0) / max(it['w'], 1e-6), (hi - lo - 0.01) / max(it['h'], 1e-6))
     for v, a, b in zip(it['pr'].vertices(), it['a'], it['b']):
         v.setAttribValue('uv', (float(us + (a - it['a'].min()) * D), float(lo + 0.005 + (b - it['b'].min()) * D), 0.0))
 # balls : cube projection, six planar cells side by side in one band

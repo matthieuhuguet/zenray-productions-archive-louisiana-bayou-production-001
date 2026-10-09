@@ -1,0 +1,28 @@
+# 9 October 2026 : church cross. EN: the crossbar was swept with the same square section as the post and sat flush with its two faces (coplanar faces, texture bug). It is now thinner in depth (CROSSBAR_DEPTH_RATIO) and centred on the post depth, so it passes through the post and shows on both sides as if slid inside the support ; its height and its width are untouched. The cross pieces also get px_per_m = 1024 for the UV pass. FR : le croisillon est plus fin en profondeur et centré sur le poteau, il traverse le support, hauteur et largeur inchangées.
+import hou
+geo = hou.pwd().geometry()
+CROSSBAR_DEPTH_RATIO = 0.78
+PX_PER_M = 1024.0
+if geo.findPrimAttrib('px_per_m') is None: geo.addAttrib(hou.attribType.Prim, 'px_per_m', 0.0)
+pieces = {}
+for pr in geo.prims(): pieces.setdefault(pr.attribValue('piece_id'), []).append(pr)
+def box(prs):
+    P = [v.point().position() for pr in prs for v in pr.vertices()]
+    return [min(p[i] for p in P) for i in range(3)], [max(p[i] for p in P) for i in range(3)]
+post = bar = None
+for pid, prs in pieces.items():
+    lo, hi = box(prs); sx, sy, sz = hi[0] - lo[0], hi[1] - lo[1], hi[2] - lo[2]
+    if lo[1] > 7.5 and hi[1] < 9.2 and abs(lo[0] + hi[0]) < 0.01 and lo[2] > 0:
+        if sy > 1.0 and sx < 0.2: post = (prs, lo, hi)
+        elif sx > 0.5 and sy < 0.2: bar = (prs, lo, hi)
+if post and bar:
+    zc = (post[1][2] + post[2][2]) / 2.0                         # the post depth centre
+    for prs, lo, hi in (bar,):
+        done = set()
+        for pr in prs:
+            for v in pr.vertices():
+                pt = v.point()
+                if pt.number() in done: continue
+                done.add(pt.number()); p = pt.position(); pt.setPosition((p[0], p[1], zc + (p[2] - (lo[2] + hi[2]) / 2.0) * CROSSBAR_DEPTH_RATIO))
+    for prs, lo, hi in (post, bar):
+        for pr in prs: pr.setAttribValue('px_per_m', PX_PER_M)
