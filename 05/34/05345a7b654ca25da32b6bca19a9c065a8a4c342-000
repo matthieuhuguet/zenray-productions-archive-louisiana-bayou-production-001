@@ -37,14 +37,14 @@ for part in {i['part'] for i in isl}:
     items = [i for i in isl if i['part'] == part]; lo, hi = BAND[part]
     D = min(D, (U1 - U0) / max(i['w'] for i in items), (hi - lo - 0.01) / max(i['h'] for i in items))
 for it in isl:
-    lo, hi = BAND[it['part']]; rnd = random.Random(it['pid'] * 131 + 7); room = max(0.0, (U1 - U0) - it['w'] * D); us = U0 + rnd.random() * room
+    lo, hi = BAND[it['part']]; us = U0                                   # bottom left corner of the band, always (Matthieu, 9 October 2026)
     for v, a, b in zip(it['pr'].vertices(), it['a'], it['b']):
         v.setAttribValue('uv', (float(us + (a - it['a'].min()) * D), float(lo + 0.005 + (b - it['b'].min()) * D), 0.0))
 # balls : cube projection, six planar cells side by side in one band
 for pid, prs in pieces.items():
     if prs[0].attribValue('stair_part') != 'ball': continue
     P = np.array([v.point().position() for pr in prs for v in pr.vertices()], float); c = (P.min(axis=0) + P.max(axis=0)) / 2; R = float((P.max(axis=0) - P.min(axis=0)).max() / 2)
-    lo, hi = BAND['ball']; cell = 2 * R * D * 1.08; rnd = random.Random(pid * 17 + 3); us = U0 + rnd.random() * max(0.0, (U1 - U0) - 6 * cell)
+    lo, hi = BAND['ball']; cell = 2 * R * D * 1.08; us = U0
     for pr in prs:
         n = np.array(pr.normal()); ax = int(np.argmax(np.abs(n))); idx = ax * 2 + (1 if n[ax] < 0 else 0)
         ia, ib = {0: (2, 1), 1: (0, 2), 2: (0, 1)}[ax]

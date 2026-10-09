@@ -23,8 +23,8 @@ G = {
  'sash':           ('Window sashes',           'M_WindowWood_04',       'wood',  (190, 160, 90)),
  'glass':          ('Window glass',            'M_WindowWood_04',       'wood',  (120, 175, 255)),
  'rail':           ('Shutter rails',           'M_WindowWood_04',       'wood',  (200, 120, 0)),
- 'slat_L':         ('Shutter slats left',      'M_WindowWood_04',       'wood',  (240, 90, 30)),
- 'slat_R':         ('Shutter slats right',     'M_WindowWood_04',       'wood',  (150, 20, 40)),
+ 'slat_L':         ('Shutter slats left',      'M_WindowWood_04',       'wood',  (225, 30, 45)),
+ 'slat_R':         ('Shutter slats right',     'M_WindowWood_04',       'wood',  (225, 30, 45)),
  'other':          ('Other window parts',      'M_WindowWood_04',       'wood',  (160, 160, 160)),
  'roof':           ('Roof shingles (36 slots)', 'M_RoofShingles',      'roof',  (255, 255, 255)),
 }
@@ -81,7 +81,7 @@ def panel(keys, tex, title):
         c = col(f); d.polygon(pts, fill=c + (150,), outline=c + (255,)); n += 1
     im = Image.alpha_composite(base.convert('RGBA'), ov).convert('RGB'); ImageDraw.Draw(im).text((18, 14), title + '  (%d faces)' % n, fill=(255, 255, 255), font=SANS(36), stroke_width=2, stroke_fill=(0, 0, 0))
     return im
-WOODA = ['frame', 'sash', 'glass', 'rail', 'other', 'stair_tread', 'stair_rail', 'stair_baluster', 'stair_newel', 'stair_newel_cap', 'stair_ball']
+WOODA = ['frame', 'sash', 'rail', 'other', 'stair_tread', 'stair_rail', 'stair_baluster', 'stair_newel', 'stair_newel_cap', 'stair_ball']
 panels = [panel(['paint_church', 'paint_porch'], 'BayouWhitePaint_basecolor_edgeblack_2048.png', 'White paint sheet : clapboards'),
           panel(['paint_trim', 'stair_support'], 'BayouWhitePaint_basecolor_edgeblack_2048.png', 'White paint sheet : trim and stair supports'),
           panel(WOODA, 'BayouShutterTrim_basecolor_2048.png', 'Window wood sheet : frames, sashes, rails, stairs'),

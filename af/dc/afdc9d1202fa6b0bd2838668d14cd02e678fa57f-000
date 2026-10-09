@@ -18,7 +18,7 @@ def frame(P, n):
 fixed = 0; before = []
 for pr in geo.prims():
     grp = pr.attribValue('grp'); part = pr.attribValue('stair_part') if geo.findPrimAttrib('stair_part') else ''
-    if part == 'ball': continue
+    if part == 'ball' or grp == 'glass': continue      # glass is another material, its uv stays parked at 0
     vs = list(pr.vertices())
     if len(vs) < 3: continue
     P = np.array([v.point().position() for v in vs], float); U = np.array([list(v.attribValue('uv'))[:2] for v in vs], float)
