@@ -1,35 +1,48 @@
-# 9 October 2026 : church cross. EN: the crossbar was swept with the same square section as the post and sat flush with its two faces (coplanar faces, texture bug). It is now thinner in depth (CROSSBAR_DEPTH_RATIO) and centred on the post depth, so it passes through the post and shows on both sides as if slid inside the support ; its height and its width are untouched. The cross pieces also get px_per_m = 1024 for the UV pass. FR : le croisillon est plus fin en profondeur et centré sur le poteau, il traverse le support, hauteur et largeur inchangées.
+# 9 October 2026 : church cross + inverted arrow, ONE component. EN: pieces are found by shape on the front gable (z 6.1 to 6.4, |x| < 0.5, y above the window top) so the node keeps working when the gable heights change. (1) the crossbar is thinner in depth (CROSSBAR_DEPTH_RATIO) and centred on the post depth, so it passes through the post ; height and width untouched. (2) the lower post and the two arch arms (the inverted arrow) are moved so they START exactly at the highest point of window B (WIN_TOP read from Component_WindowB), the lower post is extended to meet the cross post, and all five pieces get the same piece_id and px_per_m = 1024, so they are one component. FR : croix et flèche inversée = un seul composant, départ exact au point le plus haut de la fenêtre B, croisillon centré dans le poteau.
 import hou
+import numpy as np
 geo = hou.pwd().geometry()
 CROSSBAR_DEPTH_RATIO = 0.78
 PX_PER_M = 1024.0
-SINK = 0.18   # 9 October 2026 : the whole cross sinks into the ridge so it no longer floats. FR : la croix s'enfonce dans le faîtage, elle ne flotte plus.
-if geo.findPrimAttrib('px_per_m') is None: geo.addAttrib(hou.attribType.Prim, 'px_per_m', 0.0)
+SINK = 0.0
+win = hou.node(hou.pwd().parent().path() + '/Component_WindowB').geometry().boundingBox()
+WIN_TOP = win.maxvec()[1]
+for nm, dv in (('px_per_m', 0.0),):
+    if geo.findPrimAttrib(nm) is None: geo.addAttrib(hou.attribType.Prim, nm, dv)
 pieces = {}
 for pr in geo.prims(): pieces.setdefault(pr.attribValue('piece_id'), []).append(pr)
 def box(prs):
-    P = [v.point().position() for pr in prs for v in pr.vertices()]
-    return [min(p[i] for p in P) for i in range(3)], [max(p[i] for p in P) for i in range(3)]
-post = bar = None
+    P = np.array([v.point().position() for pr in prs for v in pr.vertices()], float)
+    return P.min(axis=0), P.max(axis=0)
+post_hi = post_lo = bar = None; arches = []
 for pid, prs in pieces.items():
-    lo, hi = box(prs); sx, sy, sz = hi[0] - lo[0], hi[1] - lo[1], hi[2] - lo[2]
-    if lo[1] > 7.5 and hi[1] < 9.2 and abs(lo[0] + hi[0]) < 0.01 and lo[2] > 0:
-        if sy > 1.0 and sx < 0.2: post = (prs, lo, hi)
-        elif sx > 0.5 and sy < 0.2: bar = (prs, lo, hi)
-if post and bar:
-    zc = (post[1][2] + post[2][2]) / 2.0                         # the post depth centre
-    for prs, lo, hi in (bar,):
-        done = set()
+    lo, hi = box(prs); sx, sy = hi[0] - lo[0], hi[1] - lo[1]
+    if not (6.1 < lo[2] and hi[2] < 6.45 and abs(lo[0] + hi[0]) < 0.8 and lo[1] > WIN_TOP - 0.4 and hi[1] < 9.5): continue
+    if sx < 0.2 and sy > 1.0:
+        if lo[1] < 7.0 and lo[1] > WIN_TOP - 0.4 and hi[1] < 7.6 and sy > 1.0 and hi[1] - lo[1] < 1.4 and lo[1] < WIN_TOP + 0.1: post_lo = (prs, lo, hi)
+        else: post_hi = (prs, lo, hi)
+    elif sx > 0.6 and sy < 0.2: bar = (prs, lo, hi)
+    elif 0.3 < sx < 0.5 and 0.3 < sy < 1.0: arches.append((prs, lo, hi))
+def move_points(prs, fn):
+    done = set()
+    for pr in prs:
+        for v in pr.vertices():
+            pt = v.point()
+            if pt.number() in done: continue
+            done.add(pt.number()); p = pt.position(); pt.setPosition(fn(p))
+if post_hi and bar:
+    zc = (post_hi[1][2] + post_hi[2][2]) / 2.0
+    zb = (bar[1][2] + bar[2][2]) / 2.0
+    move_points(bar[0], lambda p: (p[0], p[1], zc + (p[2] - zb) * CROSSBAR_DEPTH_RATIO))
+if post_lo:
+    top_y = post_hi[1][1] + 0.10 if post_hi else post_lo[2][1]
+    move_points(post_lo[0], lambda p: (p[0], WIN_TOP if p[1] < post_lo[1][1] + 0.3 else top_y, p[2]))
+for prs, lo, hi in arches:
+    dy = WIN_TOP - lo[1]
+    move_points(prs, lambda p, dy=dy: (p[0], p[1] + dy, p[2]))
+members = [x for x in [post_hi, post_lo, bar] + arches if x]
+if members:
+    comp_id = members[0][0][0].attribValue('piece_id')
+    for prs, lo, hi in members:
         for pr in prs:
-            for v in pr.vertices():
-                pt = v.point()
-                if pt.number() in done: continue
-                done.add(pt.number()); p = pt.position(); pt.setPosition((p[0], p[1], zc + (p[2] - (lo[2] + hi[2]) / 2.0) * CROSSBAR_DEPTH_RATIO))
-    for prs, lo, hi in (post, bar):
-        done2 = set()
-        for pr in prs:
-            pr.setAttribValue('px_per_m', PX_PER_M)
-            for v in pr.vertices():
-                pt = v.point()
-                if pt.number() in done2: continue
-                done2.add(pt.number()); p = pt.position(); pt.setPosition((p[0], p[1] - SINK, p[2]))
+            pr.setAttribValue('piece_id', comp_id); pr.setAttribValue('px_per_m', PX_PER_M)
