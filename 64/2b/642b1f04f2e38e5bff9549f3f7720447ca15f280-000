@@ -48,6 +48,8 @@ NOISE_STD = 0.146  # 10 October 2026 : fractalnoise standard deviation per unit 
 FLOOR = 0.25       # 10 October 2026 : share of families kept uniform, so no bucket starves. FR : part uniforme.
 GAIN = 1.5         # 10 October 2026 : how strongly a measured error moves coverage. FR : gain.
 COVER_MIN, COVER_MAX = 0.005, 0.6
+SIZE_RANGE = (0.004, 0.12)  # 11 October 2026 : family size range of the non-band methods; LoopM01 may override it. FR : plage de taille.
+SX_RANGE = (1.0, 4.0)  # 11 October 2026 : default horizontal stretch of the families; LoopM01 may override it. FR : etirement par defaut.
 
 
 def stamp():
@@ -89,9 +91,9 @@ def sample_item(rng, name, target, region, coverage, cfg, phase):
     gate = rng.choice(REGION_GATES[region])
     vertical = region == 'carre'
     # 10 October 2026 : bands are defined for phases 1 to 4; from phase 5 the mixed band (phase 4) is used, the synthesis of the method. FR : au-delà de la passe 4, bande mixte.
-    lo, hi = BANDS[phase if phase in BANDS else 4] if cfg.get('bands') else (0.004, 0.12)
+    lo, hi = BANDS[phase if phase in BANDS else 4] if cfg.get('bands') else SIZE_RANGE
     size = log_uniform(rng, lo, hi)
-    sx = 1.0 if vertical else rng.uniform(1.0, 4.0)
+    sx = 1.0 if vertical else rng.uniform(SX_RANGE[0], SX_RANGE[1])  # 11 October 2026 : horizontal stretch range, a lever of the component method. EN. FR : plage d'etirement horizontal.
     sy = 12.0 if vertical else 1.0
     fine = rng.uniform(0.0, 0.3)
     fine_size = log_uniform(rng, 0.002, 0.02)
