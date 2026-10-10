@@ -1,0 +1,3 @@
+- 10 October 2026 : V003 whitepaint, SCORE 0.827 (V002 0.649): row corr 0.893, grad ratio 0.954, std ratio 0.992, chip_cover 0.133 vs 0.122, chip_med 17 vs 11. Added mid chip noise + third hairline crack layer. Next: window height.
+- 10 October 2026 : V001 window, SCORE 0.796: row corr 0.917, hist gap 0.031, grad ratio 0.73, chip_cover 0.226 vs 0.176. Missing: knots, louver end bevels, vertical patch grain visible. 62 nodes in /obj/H_Window.
+- 10 October 2026 : V001 tile (ONE graph, 36 seeds assembled), SCORE 0.886: hist gap 0.021, grad ratio 0.894, std ratio 1.02, chip_cover 0.243 vs 0.228, chip_med 10 vs 11, aniso 1.58 vs 2.08. Missing: long vertical streaks, wider knots, softer bottom shadow. 64+ nodes in /obj/H_RoofTile.
