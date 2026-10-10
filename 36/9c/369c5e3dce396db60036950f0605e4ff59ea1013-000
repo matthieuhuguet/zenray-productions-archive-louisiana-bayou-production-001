@@ -18,10 +18,16 @@ for p in church.prims():
         continue
     counted[g] += 1
     if len(vs) <= 4:
-        P = np.array([v.point().position() for v in vs[:3]]); dP = np.stack([P[1] - P[0], P[2] - P[0]], axis=1); dU = np.stack([uv[1] - uv[0], uv[2] - uv[0]], axis=1)
-        if abs(np.linalg.det(dU)) < 1e-12 or abs(np.linalg.det(dP.T @ dP)) < 1e-18: degenerate[g] += 1
+        # 10 October 2026 : the best conditioned corner of the face is tested, a quad with an inline vertex (boolean union) is not degenerate. FR : on teste le meilleur coin de la face, un quad avec un sommet aligne n'est pas degenere.
+        PP = np.array([v.point().position() for v in vs]); best = None
+        for tri in ((0, 1, 2), (0, 1, 3), (0, 2, 3), (1, 2, 3)):
+            if max(tri) >= len(vs): continue
+            a, b, c = tri; dP = np.stack([PP[b] - PP[a], PP[c] - PP[a]], axis=1); dU = np.stack([uv[b] - uv[a], uv[c] - uv[a]], axis=1)
+            q = abs(np.linalg.det(dP.T @ dP))
+            if best is None or q > best[0]: best = (q, dU, dP)
+        if abs(np.linalg.det(best[1])) < 1e-12 or best[0] < 1e-18: degenerate[g] += 1
         else:
-            s = np.linalg.svd(dP @ np.linalg.inv(dU), compute_uv=False); worst[g] = max(worst[g], s[0] / max(s[1], 1e-12))
+            s = np.linalg.svd(best[2] @ np.linalg.inv(best[1]), compute_uv=False); worst[g] = max(worst[g], s[0] / max(s[1], 1e-12))
     key = 'stair_wood' if g == 'stair_wood' else g
     if key in BANDS:
         lo, hi = BANDS[key]
