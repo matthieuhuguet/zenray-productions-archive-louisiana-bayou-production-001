@@ -306,7 +306,7 @@ def run_build(spec_path, png, res, limit_s):
     return rec
 
 
-def run_phase(method_id, phase, K=None, res=1254, seed=7, limit_s=150.0):
+def run_phase(method_id, phase, K=None, res=1254, seed=7, limit_s=150.0, hole_amp=None):
     # 10 October 2026 : one pass: spec, one build, one render, one mask measure, one journal line. EN. FR : une passe complete.
     cfg = METHODS[method_id]
     K = K or KIND_FAMILIES[cfg['kind']]
@@ -335,6 +335,8 @@ def run_phase(method_id, phase, K=None, res=1254, seed=7, limit_s=150.0):
     items = items_from_buckets(counts, coverage, rng, phase, cfg)
     spec = {'method': method_id, 'phase': phase, 'finish': cfg['finish'], 'families': len(items),
             'coverage': coverage, 'items': items, 'lip_w': LIP_W}
+    if hole_amp is not None:
+        spec['hole_amp'] = round(hole_amp, 4)  # 10 October 2026, 23:58 : hole depth chosen by the caller, the loop. EN. FR : profondeur de trou choisie par l'appelant.
     if cfg.get('hist') and phase > 1:
         spec['hist'] = hist_keys(out_dir + 'P%d.png' % (phase - 1), MM.load_size())
     spec_path = spec_dir + 'P%d.json' % phase
@@ -342,7 +344,7 @@ def run_phase(method_id, phase, K=None, res=1254, seed=7, limit_s=150.0):
         json.dump(spec, fh)
     png = out_dir + 'P%d.png' % phase
     rec = run_build(spec_path, png, res, limit_s)
-    rec.update(series=SERIES, lip_w=LIP_W, method=method_id, phase=phase, date=stamp(), kind=cfg['kind'], finish=cfg['finish'], rule=UPDATE_RULE,
+    rec.update(series=SERIES, lip_w=LIP_W, method=method_id, phase=phase, date=stamp(), kind=cfg['kind'], finish=cfg['finish'], rule=UPDATE_RULE, hole_amp=spec.get('hole_amp'),
                buckets={'%s_%s' % k: v for k, v in counts.items()},
                coverage={r: {t: round(v, 4) for t, v in d.items()} for r, d in coverage.items()})
     if rec['status'] == 'ok' and SERIES == 'v4':
