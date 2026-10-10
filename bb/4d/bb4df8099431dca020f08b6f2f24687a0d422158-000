@@ -24,7 +24,7 @@ def tidy(net, titles):
     groups = {}
     for n in net.children():
         if n.type().name() == 'rop_image': continue
-        groups.setdefault(n.name()[0], []).append(n)
+        groups.setdefault(n.name().split('_')[0], []).append(n)   # 10 October 2026 : one box per section token, e.g. L3, A00. FR : une boite par section.
     for k, nodes in sorted(groups.items()):
         box = net.createNetworkBox('Sec_' + k); box.setComment(titles.get(k, k))
         for n in nodes: box.addNode(n)

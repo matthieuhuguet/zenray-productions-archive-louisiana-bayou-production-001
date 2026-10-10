@@ -1,3 +1,4 @@
+# 10 October 2026 : DEPRECATED as a gate, kept as a log only ; the verdict of a height is visual (zenray-houdini SKILL.md, section of 10 October 2026). FR : mesures de comparaison déprécies comme porte, journal seulement.
 # 10 October 2026 : statistical + structural comparison of a built height against its reference (the histogram alone lies, so seven measures). Usage: CompareHeight.py <window|whitepaint|tile> <built.png> [label]. FR : comparaison structurelle et statistique.
 import sys, json, numpy as np
 from PIL import Image
