@@ -1,0 +1,556 @@
+{
+ "name": "TileHeight",
+ "output": "T_level",
+ "nodes": [
+  {
+   "id": "T_u",
+   "type": "ramp",
+   "inputs": [],
+   "tag": "T1_cells",
+   "params": {
+    "signature": "f1",
+    "rampType": 0,
+    "method": 1,
+    "cycles": 6.074339169815103,
+    "phase": -0.129974758061336,
+    "rotation": 0.0,
+    "startposx": 0.0,
+    "startposy": 0.0,
+    "endposx": 1.0,
+    "endposy": 0.0
+   }
+  },
+  {
+   "id": "T_v",
+   "type": "ramp",
+   "inputs": [],
+   "tag": "T1_cells",
+   "params": {
+    "signature": "f1",
+    "rampType": 0,
+    "method": 1,
+    "cycles": 6.074339169815103,
+    "phase": -0.017084078915104974,
+    "rotation": 90.0,
+    "startposx": 0.0,
+    "startposy": 0.0,
+    "endposx": 1.0,
+    "endposy": 0.0
+   }
+  },
+  {
+   "id": "T_u_left",
+   "type": "remap",
+   "inputs": [
+    "T_u"
+   ],
+   "tag": "T2_rect",
+   "params": {
+    "inputmin": 0.06462743781782104,
+    "inputmax": 0.09062743781782104,
+    "outputmin": 0.0,
+    "outputmax": 1.0,
+    "useramp": 1,
+    "ramp": {
+     "basis": "linear",
+     "keys": [
+      [
+       0.0,
+       0.0
+      ],
+      [
+       0.1,
+       0.028000000000000004
+      ],
+      [
+       0.2,
+       0.10400000000000002
+      ],
+      [
+       0.3,
+       0.21600000000000003
+      ],
+      [
+       0.4,
+       0.3520000000000001
+      ],
+      [
+       0.5,
+       0.5
+      ],
+      [
+       0.6,
+       0.6480000000000001
+      ],
+      [
+       0.7,
+       0.7839999999999999
+      ],
+      [
+       0.8,
+       0.8960000000000001
+      ],
+      [
+       0.9,
+       0.972
+      ],
+      [
+       1.0,
+       1.0
+      ]
+     ]
+    }
+   }
+  },
+  {
+   "id": "T_u_right",
+   "type": "remap",
+   "inputs": [
+    "T_u"
+   ],
+   "tag": "T2_rect",
+   "params": {
+    "inputmin": 0.9353725621821789,
+    "inputmax": 0.9093725621821789,
+    "outputmin": 0.0,
+    "outputmax": 1.0,
+    "useramp": 1,
+    "ramp": {
+     "basis": "linear",
+     "keys": [
+      [
+       0.0,
+       0.0
+      ],
+      [
+       0.1,
+       0.028000000000000004
+      ],
+      [
+       0.2,
+       0.10400000000000002
+      ],
+      [
+       0.3,
+       0.21600000000000003
+      ],
+      [
+       0.4,
+       0.3520000000000001
+      ],
+      [
+       0.5,
+       0.5
+      ],
+      [
+       0.6,
+       0.6480000000000001
+      ],
+      [
+       0.7,
+       0.7839999999999999
+      ],
+      [
+       0.8,
+       0.8960000000000001
+      ],
+      [
+       0.9,
+       0.972
+      ],
+      [
+       1.0,
+       1.0
+      ]
+     ]
+    }
+   }
+  },
+  {
+   "id": "T_u_rect",
+   "type": "blend",
+   "inputs": [
+    "T_u_left",
+    "T_u_right"
+   ],
+   "tag": "T2_rect",
+   "params": {
+    "mode": 5
+   }
+  },
+  {
+   "id": "T_v_top",
+   "type": "remap",
+   "inputs": [
+    "T_v"
+   ],
+   "tag": "T2_rect",
+   "params": {
+    "inputmin": 0.06462743781782104,
+    "inputmax": 0.09062743781782104,
+    "outputmin": 0.0,
+    "outputmax": 1.0,
+    "useramp": 1,
+    "ramp": {
+     "basis": "linear",
+     "keys": [
+      [
+       0.0,
+       0.0
+      ],
+      [
+       0.1,
+       0.028000000000000004
+      ],
+      [
+       0.2,
+       0.10400000000000002
+      ],
+      [
+       0.3,
+       0.21600000000000003
+      ],
+      [
+       0.4,
+       0.3520000000000001
+      ],
+      [
+       0.5,
+       0.5
+      ],
+      [
+       0.6,
+       0.6480000000000001
+      ],
+      [
+       0.7,
+       0.7839999999999999
+      ],
+      [
+       0.8,
+       0.8960000000000001
+      ],
+      [
+       0.9,
+       0.972
+      ],
+      [
+       1.0,
+       1.0
+      ]
+     ]
+    }
+   }
+  },
+  {
+   "id": "T_jag_noise",
+   "type": "fractalnoise",
+   "inputs": [],
+   "tag": "T3_jag",
+   "params": {
+    "elementsize": 0.13,
+    "oct": 3.0,
+    "rough": 0.5,
+    "amp": 0.5,
+    "center": 0.5
+   }
+  },
+  {
+   "id": "T_jag_off",
+   "type": "remap",
+   "inputs": [
+    "T_jag_noise"
+   ],
+   "tag": "T3_jag",
+   "params": {
+    "inputmin": 0.0,
+    "inputmax": 1.0,
+    "outputmin": -0.075,
+    "outputmax": 0.075,
+    "useramp": 0
+   }
+  },
+  {
+   "id": "T_v_jag",
+   "type": "blend",
+   "inputs": [
+    "T_v",
+    "T_jag_off"
+   ],
+   "tag": "T3_jag",
+   "params": {
+    "mode": 3
+   }
+  },
+  {
+   "id": "T_v_bottom",
+   "type": "remap",
+   "inputs": [
+    "T_v_jag"
+   ],
+   "tag": "T3_jag",
+   "params": {
+    "inputmin": 0.9353725621821789,
+    "inputmax": 0.9093725621821789,
+    "outputmin": 0.0,
+    "outputmax": 1.0,
+    "useramp": 1,
+    "ramp": {
+     "basis": "linear",
+     "keys": [
+      [
+       0.0,
+       0.0
+      ],
+      [
+       0.1,
+       0.028000000000000004
+      ],
+      [
+       0.2,
+       0.10400000000000002
+      ],
+      [
+       0.3,
+       0.21600000000000003
+      ],
+      [
+       0.4,
+       0.3520000000000001
+      ],
+      [
+       0.5,
+       0.5
+      ],
+      [
+       0.6,
+       0.6480000000000001
+      ],
+      [
+       0.7,
+       0.7839999999999999
+      ],
+      [
+       0.8,
+       0.8960000000000001
+      ],
+      [
+       0.9,
+       0.972
+      ],
+      [
+       1.0,
+       1.0
+      ]
+     ]
+    }
+   }
+  },
+  {
+   "id": "T_v_rect",
+   "type": "blend",
+   "inputs": [
+    "T_v_top",
+    "T_v_bottom"
+   ],
+   "tag": "T3_jag",
+   "params": {
+    "mode": 5
+   }
+  },
+  {
+   "id": "T_cell",
+   "type": "blend",
+   "inputs": [
+    "T_u_rect",
+    "T_v_rect"
+   ],
+   "tag": "T3_jag",
+   "params": {
+    "mode": 5
+   }
+  },
+  {
+   "id": "T_half",
+   "type": "constant",
+   "inputs": [],
+   "tag": "T4_planks",
+   "params": {
+    "signature": "f1",
+    "f1": 0.5
+   }
+  },
+  {
+   "id": "T_u_dist",
+   "type": "blend",
+   "inputs": [
+    "T_u",
+    "T_half"
+   ],
+   "tag": "T4_planks",
+   "params": {
+    "mode": 9
+   }
+  },
+  {
+   "id": "T_seam",
+   "type": "remap",
+   "inputs": [
+    "T_u_dist"
+   ],
+   "tag": "T4_planks",
+   "params": {
+    "inputmin": 0.03,
+    "inputmax": 0.06,
+    "outputmin": 0.0,
+    "outputmax": 1.0,
+    "useramp": 1,
+    "ramp": {
+     "basis": "linear",
+     "keys": [
+      [
+       0.0,
+       0.0
+      ],
+      [
+       0.1,
+       0.028000000000000004
+      ],
+      [
+       0.2,
+       0.10400000000000002
+      ],
+      [
+       0.3,
+       0.21600000000000003
+      ],
+      [
+       0.4,
+       0.3520000000000001
+      ],
+      [
+       0.5,
+       0.5
+      ],
+      [
+       0.6,
+       0.6480000000000001
+      ],
+      [
+       0.7,
+       0.7839999999999999
+      ],
+      [
+       0.8,
+       0.8960000000000001
+      ],
+      [
+       0.9,
+       0.972
+      ],
+      [
+       1.0,
+       1.0
+      ]
+     ]
+    }
+   }
+  },
+  {
+   "id": "T_plank",
+   "type": "remap",
+   "inputs": [
+    "T_seam"
+   ],
+   "tag": "T4_planks",
+   "params": {
+    "inputmin": 0.0,
+    "inputmax": 1.0,
+    "outputmin": 0.2924120329831767,
+    "outputmax": 0.5924120329831767,
+    "useramp": 0
+   }
+  },
+  {
+   "id": "T_grain_noise",
+   "type": "fractalnoise",
+   "inputs": [],
+   "tag": "T5_grain",
+   "params": {
+    "elementsize": 0.003,
+    "oct": 3.0,
+    "rough": 0.6,
+    "amp": 0.5,
+    "center": 0.5
+   }
+  },
+  {
+   "id": "T_grain_streak",
+   "type": "streakblur",
+   "inputs": [
+    "T_grain_noise"
+   ],
+   "tag": "T5_grain",
+   "params": {
+    "dirtype": 0,
+    "angle": 90.0,
+    "units": 1,
+    "length_pixels": 20.0
+   }
+  },
+  {
+   "id": "T_grain_delta",
+   "type": "remap",
+   "inputs": [
+    "T_grain_streak"
+   ],
+   "tag": "T5_grain",
+   "params": {
+    "inputmin": 0.484375,
+    "inputmax": 0.515625,
+    "outputmin": -0.075,
+    "outputmax": 0.075,
+    "useramp": 0
+   }
+  },
+  {
+   "id": "T_planked",
+   "type": "blend",
+   "inputs": [
+    "T_plank",
+    "T_grain_delta"
+   ],
+   "tag": "T5_grain",
+   "params": {
+    "mode": 3
+   }
+  },
+  {
+   "id": "T_masked",
+   "type": "blend",
+   "inputs": [
+    "T_planked",
+    "T_cell"
+   ],
+   "tag": "T6_gutters",
+   "params": {
+    "mode": 5
+   }
+  },
+  {
+   "id": "T_level",
+   "type": "remap",
+   "inputs": [
+    "T_masked"
+   ],
+   "tag": "T6_gutters",
+   "params": {
+    "inputmin": 0.0,
+    "inputmax": 1.0,
+    "outputmin": -0.013749999999999998,
+    "outputmax": 0.98625,
+    "useramp": 0
+   }
+  }
+ ]
+}

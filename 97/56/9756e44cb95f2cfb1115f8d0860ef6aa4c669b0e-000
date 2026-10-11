@@ -1,0 +1,10 @@
+#!/bin/bash
+# 11 October 2026 : waits until the tile and whitepaint searches are done (or 4 hours), then rebuilds the proof manifest.
+for i in $(seq 1 240); do
+  S1=$(python3 -c "import json;print(json.load(open('/Users/zenray/Create/Build/Productions/ZenRayHoudini/LouisianaBayou/Heights/CopDesigner/runs/tile_opt_1/state.json')).get('status'))" 2>/dev/null)
+  S2=$(python3 -c "import json;print(json.load(open('/Users/zenray/Create/Build/Productions/ZenRayHoudini/LouisianaBayou/Heights/CopDesigner/runs/whitepaint_opt_1/state.json')).get('status'))" 2>/dev/null)
+  if [ "$S1" = "done" ] && [ "$S2" = "done" ]; then break; fi
+  sleep 60
+done
+echo "tile=$S1 whitepaint=$S2 after $i minutes"
+python3 /Users/zenray/.claude/skills/zenray-cop-designer/tool/make_manifest.py | tail -8

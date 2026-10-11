@@ -3,28 +3,151 @@
 [Octane] HDK API: 22.0.368
 [Octane] Houdini host version: 22.0.368
 [Octane] Initializing Octane API
-[Octane] Octane API ready. Initialization time: 0.823 seconds
-[Octane] OCIO configuration ready. Initialization time: 0.008 seconds
+[Octane] Octane API ready. Initialization time: 0.771 seconds
+[Octane] OCIO configuration ready. Initialization time: 0.007 seconds
 [Octane] Octane network rendering enabled. Initialization time: 0.000 seconds
 [Octane] WARNING: preferences file not found: /Users/zenray/Library/Preferences/houdini/22.0/octane.pref
-[Octane] 10:20:22 INFOR: [nodes] -------------  Registering Octane VOP nodes
-[Octane] 10:20:22 INFOR: [nodes] -------------  Octane VOP nodes registered
-[Octane] 10:20:22 INFOR: [nodes] -------------  Registering the plugin custom VOP nodes
-[Octane] 10:20:22 INFOR: [nodes] -------------  Plugin custom VOP nodes registered
+[Octane] 10:22:15 INFOR: [nodes] -------------  Registering Octane VOP nodes
+[Octane] 10:22:15 INFOR: [nodes] -------------  Octane VOP nodes registered
+[Octane] 10:22:15 INFOR: [nodes] -------------  Registering the plugin custom VOP nodes
+[Octane] 10:22:15 INFOR: [nodes] -------------  Plugin custom VOP nodes registered
 oplib:/Cop/fractalnoise?Cop/fractalnoise Warning(23): error binding handle sidefx_transform2d because it doesn't exist.
 oplib:/Cop/fractalnoise?Cop/fractalnoise Warning(24): error binding handle sidefx_transform2d because it doesn't exist.
-CRASHED: 'equiv'
-Traceback (most recent call last):
-  File "/Users/zenray/.claude/skills/zenray-cop-designer/tool/optimize.py", line 208, in <module>
-    main()
-    ~~~~^^
-  File "/Users/zenray/.claude/skills/zenray-cop-designer/tool/optimize.py", line 200, in main
-    search.run()
-    ~~~~~~~~~~^^
-  File "/Users/zenray/.claude/skills/zenray-cop-designer/tool/optimize.py", line 176, in run
-    base['score'], base['equiv'], base['quantile_err'], base['grad_log_err'], base['mean']), flush=True)
-                   ~~~~^^^^^^^^^
-KeyError: 'equiv'
-[Octane] 10:20:24 INFOR: [render] ------------   - Cleaning the scene. Full clean state 1
-[Octane] 10:20:24 INFOR: [render] ------------   - Scene including 0 items cleaned. 0 items deleted. 0 remaing items.
-[Octane] 10:20:24 INFOR: [api] ---------------  Closing the Octane API
+baseline score -0.11637 (equiv None, quantile 34.00, grad 3.901, mean 162.91)
+n 4 r0 hole_t0 -1 -> score -0.08072 (equiv -1.0000, quantile 33.14, grad 3.676)
+n 5 r0 hole_t0 -1 -> score -0.04830 (equiv -1.0000, quantile 32.71, grad 3.447)
+n 6 r0 hole_t0 -1 -> score -0.03818 (equiv -1.0000, quantile 32.00, grad 3.196)
+n 9 r0 hole_w -1 -> score -0.03214 (equiv -1.0000, quantile 31.43, grad 3.107)
+n 10 r0 hole_w -1 -> score -0.01927 (equiv -1.0000, quantile 29.57, grad 3.015)
+n 11 r0 hole_w -1 -> score -0.01586 (equiv -1.0000, quantile 28.71, grad 2.968)
+n 12 r0 hole_depth +1 -> score -0.01082 (equiv -1.0000, quantile 27.14, grad 2.722)
+n 13 r0 hole_depth +1 -> score 0.00118 (equiv -1.0000, quantile 24.43, grad 2.511)
+n 14 r0 hole_depth +1 -> score 0.01627 (equiv -1.0000, quantile 21.29, grad 2.319)
+n 15 r0 hole_depth +1 -> score 0.02450 (equiv -1.0000, quantile 18.57, grad 2.152)
+n 18 r0 hole_cover +1 -> score 0.06906 (equiv -1.0000, quantile 17.86, grad 2.149)
+n 22 r0 hole_elementsize -1 -> score 0.19410 (equiv -1.0000, quantile 14.29, grad 1.575)
+n 23 r0 hole_elementsize -1 -> score 0.22560 (equiv -1.0000, quantile 18.00, grad 0.874)
+n 24 r0 grain_gain +1 -> score 0.23500 (equiv -1.0000, quantile 16.86, grad 0.831)
+n 25 r0 grain_gain +1 -> score 0.24532 (equiv -1.0000, quantile 15.57, grad 0.787)
+n 26 r0 grain_gain +1 -> score 0.25671 (equiv -1.0000, quantile 14.14, grad 0.749)
+n 27 r0 grain_gain +1 -> score 0.26597 (equiv -1.0000, quantile 12.86, grad 0.711)
+n 28 r0 grain_gain +1 -> score 0.27926 (equiv -1.0000, quantile 11.14, grad 0.676)
+n 29 r0 grain_gain +1 -> score 0.28628 (equiv -1.0000, quantile 10.00, grad 0.642)
+n 33 r0 grain_width -1 -> score 0.28886 (equiv -1.0000, quantile 8.43, grad 0.579)
+n 36 r0 grain_length -1 -> score 0.29600 (equiv -1.0000, quantile 8.29, grad 0.581)
+n 37 r0 grain_length -1 -> score 0.30367 (equiv -1.0000, quantile 8.14, grad 0.588)
+n 40 r0 grain_elementsize -1 -> score 0.34356 (equiv -1.0000, quantile 8.57, grad 0.379)
+n 45 r0 hole_w +1 -> score 0.36296 (equiv -1.0000, quantile 6.57, grad 0.357)
+n 60 r0 mean_trim +1 -> score 0.37427 (equiv -1.0000, quantile 5.43, grad 0.357)
+n 77 r0 grain_length -1 -> score 0.38422 (equiv -1.0000, quantile 4.71, grad 0.361)
+n 108 r0 hole_elementsize +1 -> score 0.39143 (equiv -1.0000, quantile 5.57, grad 0.269)
+n 114 r0 grain_width -1 -> score 0.39185 (equiv -1.0000, quantile 5.71, grad 0.194)
+n 143 r0 hole_w -1 -> score 0.39936 (equiv -1.0000, quantile 5.00, grad 0.173)
+n 146 r0 hole_depth -1 -> score 0.40043 (equiv -1.0000, quantile 5.00, grad 0.202)
+n 157 r0 grain_length -1 -> score 0.40253 (equiv -1.0000, quantile 5.00, grad 0.185)
+n 189 r0 hole_elementsize +1 -> score 0.42136 (equiv -1.0000, quantile 6.57, grad 0.187)
+n 194 r0 grain_width +1 -> score 0.42274 (equiv -1.0000, quantile 6.43, grad 0.193)
+n 195 r0 grain_width +1 -> score 0.42422 (equiv -1.0000, quantile 6.29, grad 0.200)
+n 203 r0 hole_t0 +1 -> score 0.44369 (equiv -1.0000, quantile 5.00, grad 0.218)
+n 208 r0 hole_depth +1 -> score 0.44663 (equiv -1.0000, quantile 4.71, grad 0.205)
+n 245 r0 hole_w +1 -> score 0.44781 (equiv -1.0000, quantile 4.57, grad 0.210)
+n 248 r0 hole_depth +1 -> score 0.44926 (equiv -1.0000, quantile 4.43, grad 0.203)
+n 251 r0 hole_cover +1 -> score 0.45086 (equiv -1.0000, quantile 4.29, grad 0.202)
+n 258 r0 grain_width +1 -> score 0.45213 (equiv -1.0000, quantile 4.14, grad 0.211)
+round 0 done: global 0.45213, evals 284
+n 287 r1 hole_t0 -1 -> score 0.11452 (equiv -1.0000, quantile 18.00, grad 1.362)
+n 288 r1 hole_t0 -1 -> score 0.20351 (equiv -1.0000, quantile 16.57, grad 1.060)
+n 289 r1 hole_t0 -1 -> score 0.32881 (equiv -1.0000, quantile 13.43, grad 0.764)
+n 296 r1 hole_cover -1 -> score 0.33357 (equiv -1.0000, quantile 13.57, grad 0.764)
+n 300 r1 grain_gain +1 -> score 0.35110 (equiv -1.0000, quantile 12.14, grad 0.655)
+n 301 r1 grain_gain +1 -> score 0.37236 (equiv -1.0000, quantile 10.29, grad 0.548)
+n 302 r1 grain_gain +1 -> score 0.38710 (equiv -1.0000, quantile 9.00, grad 0.450)
+n 303 r1 grain_gain +1 -> score 0.40250 (equiv -1.0000, quantile 7.57, grad 0.378)
+n 308 r1 grain_length -1 -> score 0.40619 (equiv -1.0000, quantile 7.86, grad 0.305)
+n 309 r1 grain_length -1 -> score 0.41665 (equiv -1.0000, quantile 7.57, grad 0.209)
+n 310 r1 grain_length -1 -> score 0.41719 (equiv -1.0000, quantile 7.57, grad 0.228)
+n 316 r1 hole_w +1 -> score 0.43876 (equiv -1.0000, quantile 5.57, grad 0.223)
+n 319 r1 hole_depth +1 -> score 0.44094 (equiv -1.0000, quantile 5.43, grad 0.211)
+n 330 r1 mean_trim +1 -> score 0.44593 (equiv -1.0000, quantile 4.29, grad 0.212)
+n 364 r1 mean_trim -1 -> score 0.45083 (equiv -1.0000, quantile 4.43, grad 0.212)
+n 396 r1 mean_trim +1 -> score 0.45215 (equiv -1.0000, quantile 4.29, grad 0.212)
+n 424 r1 grain_gain -1 -> score 0.45308 (equiv -1.0000, quantile 4.14, grad 0.224)
+n 461 r1 grain_width -1 -> score 0.45341 (equiv -1.0000, quantile 4.14, grad 0.215)
+round 1 done: global 0.45341, evals 483
+n 488 r2 hole_w -1 -> score 0.26681 (equiv -1.0000, quantile 19.43, grad 0.708)
+n 490 r2 hole_depth +1 -> score 0.31142 (equiv -1.0000, quantile 16.00, grad 0.560)
+n 491 r2 hole_depth +1 -> score 0.35564 (equiv -1.0000, quantile 12.43, grad 0.423)
+n 492 r2 hole_depth +1 -> score 0.39961 (equiv -1.0000, quantile 8.71, grad 0.299)
+n 493 r2 hole_depth +1 -> score 0.41175 (equiv -1.0000, quantile 7.57, grad 0.285)
+n 499 r2 grain_gain +1 -> score 0.41375 (equiv -1.0000, quantile 7.29, grad 0.280)
+n 509 r2 hole_w +1 -> score 0.44105 (equiv -1.0000, quantile 5.00, grad 0.331)
+n 519 r2 grain_width -1 -> score 0.44179 (equiv -1.0000, quantile 5.29, grad 0.197)
+n 550 r2 grain_gain -1 -> score 0.44604 (equiv -1.0000, quantile 4.86, grad 0.240)
+n 556 r2 mean_trim +1 -> score 0.44720 (equiv -1.0000, quantile 4.71, grad 0.233)
+n 570 r2 grain_width +1 -> score 0.44791 (equiv -1.0000, quantile 4.43, grad 0.302)
+n 586 r2 grain_gain +1 -> score 0.44946 (equiv -1.0000, quantile 4.43, grad 0.253)
+n 619 r2 grain_gain -1 -> score 0.44996 (equiv -1.0000, quantile 4.29, grad 0.282)
+n 653 r2 grain_gain +1 -> score 0.45061 (equiv -1.0000, quantile 4.29, grad 0.261)
+n 657 r2 grain_width -1 -> score 0.45114 (equiv -1.0000, quantile 4.29, grad 0.242)
+n 672 r2 grain_gain +1 -> score 0.45142 (equiv -1.0000, quantile 4.29, grad 0.234)
+n 678 r2 mean_trim +1 -> score 0.45286 (equiv -1.0000, quantile 4.14, grad 0.234)
+round 2 done: global 0.45341, evals 712
+n 714 r3 hole_t0 +1 -> score 0.14919 (equiv -1.0000, quantile 15.29, grad 1.497)
+n 715 r3 hole_t0 +1 -> score 0.17432 (equiv -1.0000, quantile 15.57, grad 1.811)
+n 719 r3 hole_w -1 -> score 0.17524 (equiv -1.0000, quantile 15.00, grad 1.721)
+n 722 r3 hole_cover +1 -> score 0.23359 (equiv -1.0000, quantile 14.29, grad 1.721)
+n 723 r3 hole_cover +1 -> score 0.27733 (equiv -1.0000, quantile 13.43, grad 1.716)
+n 728 r3 grain_gain +1 -> score 0.29320 (equiv -1.0000, quantile 12.00, grad 1.606)
+n 729 r3 grain_gain +1 -> score 0.31054 (equiv -1.0000, quantile 10.29, grad 1.492)
+n 730 r3 grain_gain +1 -> score 0.31522 (equiv -1.0000, quantile 9.86, grad 1.466)
+n 733 r3 grain_width -1 -> score 0.31632 (equiv -1.0000, quantile 9.57, grad 1.381)
+n 735 r3 grain_length -1 -> score 0.32107 (equiv -1.0000, quantile 9.71, grad 1.320)
+n 736 r3 grain_length -1 -> score 0.33237 (equiv -1.0000, quantile 9.57, grad 1.238)
+n 737 r3 grain_length -1 -> score 0.34097 (equiv -1.0000, quantile 9.57, grad 1.168)
+n 739 r3 grain_elementsize -1 -> score 0.37701 (equiv -1.0000, quantile 9.71, grad 0.637)
+n 740 r3 grain_elementsize -1 -> score 0.37809 (equiv -1.0000, quantile 9.57, grad 0.558)
+n 746 r3 hole_w -1 -> score 0.39138 (equiv -1.0000, quantile 8.43, grad 0.496)
+n 747 r3 hole_w -1 -> score 0.39831 (equiv -1.0000, quantile 7.86, grad 0.454)
+n 758 r3 mean_trim -1 -> score 0.39842 (equiv -1.0000, quantile 7.86, grad 0.454)
+n 775 r3 hole_t0 -1 -> score 0.40227 (equiv -1.0000, quantile 8.00, grad 0.359)
+n 777 r3 hole_w +1 -> score 0.40613 (equiv -1.0000, quantile 7.43, grad 0.392)
+n 813 r3 hole_elementsize +1 -> score 0.41650 (equiv -1.0000, quantile 7.71, grad 0.517)
+n 817 r3 grain_width +1 -> score 0.41736 (equiv -1.0000, quantile 7.57, grad 0.546)
+n 818 r3 grain_width +1 -> score 0.41942 (equiv -1.0000, quantile 7.29, grad 0.580)
+n 826 r3 hole_t0 -1 -> score 0.42247 (equiv -1.0000, quantile 7.14, grad 0.534)
+n 841 r3 mean_trim -1 -> score 0.42264 (equiv -1.0000, quantile 7.29, grad 0.534)
+n 846 r3 hole_w -1 -> score 0.42740 (equiv -1.0000, quantile 6.86, grad 0.517)
+n 879 r3 hole_w -1 -> score 0.42774 (equiv -1.0000, quantile 6.86, grad 0.508)
+round 3 done: global 0.45341, evals 924
+n 926 r4 hole_t0 +1 -> score 0.21754 (equiv -1.0000, quantile 14.29, grad 0.310)
+n 927 r4 hole_t0 +1 -> score 0.36096 (equiv -1.0000, quantile 10.57, grad 0.223)
+n 928 r4 hole_t0 +1 -> score 0.38560 (equiv -1.0000, quantile 9.57, grad 0.430)
+n 932 r4 hole_depth +1 -> score 0.40691 (equiv -1.0000, quantile 7.00, grad 0.346)
+n 935 r4 hole_cover -1 -> score 0.41921 (equiv -1.0000, quantile 6.86, grad 0.348)
+n 939 r4 grain_gain +1 -> score 0.42147 (equiv -1.0000, quantile 6.71, grad 0.334)
+n 976 r4 mean_trim -1 -> score 0.42270 (equiv -1.0000, quantile 6.57, grad 0.334)
+n 999 r4 hole_elementsize +1 -> score 0.43011 (equiv -1.0000, quantile 6.57, grad 0.470)
+n 1004 r4 grain_width -1 -> score 0.43279 (equiv -1.0000, quantile 6.43, grad 0.430)
+n 1008 r4 mean_trim +1 -> score 0.43432 (equiv -1.0000, quantile 6.29, grad 0.430)
+n 1048 r4 hole_elementsize -1 -> score 0.44656 (equiv -1.0000, quantile 6.86, grad 0.383)
+n 1050 r4 grain_gain -1 -> score 0.44975 (equiv -1.0000, quantile 6.57, grad 0.395)
+round 4 done: global 0.45341, evals 1073
+n 1086 r5 grain_width +1 -> score 0.44574 (equiv -1.0000, quantile 4.57, grad 0.323)
+n 1102 r5 grain_gain +1 -> score 0.44897 (equiv -1.0000, quantile 4.29, grad 0.311)
+n 1137 r5 grain_width -1 -> score 0.45140 (equiv -1.0000, quantile 4.29, grad 0.235)
+n 1184 r5 grain_gain -1 -> score 0.45244 (equiv -1.0000, quantile 4.14, grad 0.247)
+n 1221 r5 grain_width -1 -> score 0.45422 (equiv -1.0000, quantile 4.00, grad 0.238)
+round 5 done: global 0.45422, evals 1243
+n 1248 r6 hole_w -1 -> score 0.20829 (equiv -1.0000, quantile 14.86, grad 1.463)
+n 1250 r6 hole_depth +1 -> score 0.22909 (equiv -1.0000, quantile 11.57, grad 1.360)
+n 1259 r6 grain_width -1 -> score 0.25661 (equiv -1.0000, quantile 9.57, grad 1.180)
+n 1260 r6 grain_width -1 -> score 0.26434 (equiv -1.0000, quantile 9.43, grad 1.013)
+n 1264 r6 grain_elementsize -1 -> score 0.26615 (equiv -1.0000, quantile 9.71, grad 0.844)
+n 1265 r6 mean_trim +1 -> score 0.27900 (equiv -1.0000, quantile 8.71, grad 0.845)
+n 1280 r6 grain_width -1 -> score 0.28017 (equiv -1.0000, quantile 9.29, grad 0.669)
+n 1305 r6 hole_w +1 -> score 0.29027 (equiv -1.0000, quantile 8.43, grad 0.697)
+n 1308 r6 hole_depth +1 -> score 0.29165 (equiv -1.0000, quantile 7.71, grad 0.662)
+n 1312 r6 hole_cover -1 -> score 0.29972 (equiv -1.0000, quantile 6.86, grad 0.662)
+n 1317 r6 grain_width +1 -> score 0.30392 (equiv -1.0000, quantile 6.14, grad 0.743)
+n 1328 r6 hole_depth +1 -> score 0.30978 (equiv -1.0000, quantile 5.14, grad 0.714)
+n 1359 r6 hole_w +1 -> score 0.31063 (equiv -1.0000, quantile 5.14, grad 0.729)

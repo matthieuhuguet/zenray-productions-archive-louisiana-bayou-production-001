@@ -1,0 +1,21 @@
+{
+ "score": 0.45308,
+ "equiv": null,
+ "mean": 154.599,
+ "quantile_err": 4.143,
+ "grad_log_err": 0.2238,
+ "params": {
+  "seam_min_depth": 25.0,
+  "hole_t0": 0.538089397909957,
+  "hole_w": 0.023125,
+  "hole_depth": 0.4,
+  "hole_cover": 0.2637621890891052,
+  "hole_elementsize": 0.0325,
+  "grain_gain": 0.1975,
+  "grain_width": 0.018125,
+  "grain_length": 40.0,
+  "grain_elementsize": 0.003,
+  "mean_trim": 0.017499999999999998
+ },
+ "updated": "2026-10-11T10:23:59"
+}

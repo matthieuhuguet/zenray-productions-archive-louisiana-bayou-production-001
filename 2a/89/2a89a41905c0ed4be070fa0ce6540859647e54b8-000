@@ -1,0 +1,11 @@
+# Proof manifest, three heights (generated 2026-10-11T10:24:11)
+
+Reference files: /Users/zenray/Create/Build/Productions/ZenRayHoudini/LouisianaBayou/Heights/refs/window_height_ref.png, /Users/zenray/Create/Build/Productions/ZenRayHoudini/LouisianaBayou/Heights/refs/whitepaint_height_ref.png, /Users/zenray/Create/Build/Productions/ZenRayHoudini/LouisianaBayou/Heights/refs/tile_height_ref.png
+
+| label | origin | file | size | sha256 (first 16) | EQUIV (Metrics2 mode) | weakest | designer score |
+|---|---|---|---|---|---|---|---|
+| window designer best | designer (this session) | /Users/zenray/Create/Build/Productions/ZenRayHoudini/LouisianaBayou/Heights/CopDesigner/outputs/window/window_designer_best.png | 1254x1254 L | a817946dba7a7452 | 0.5024 (window) | aniso | 0.3669 |
+| whitepaint designer best | designer (this session) | /Users/zenray/Create/Build/Productions/ZenRayHoudini/LouisianaBayou/Heights/CopDesigner/outputs/whitepaint/whitepaint_designer_best.png | 1254x1254 L | a6cc7d2dc0904dc2 | 0.5111 (whitepaint) | chip_cover | 0.45308 |
+| whitepaint old finals | Houdini loops of 10 October 2026 | /Users/zenray/Create/Build/Productions/ZenRayHoudini/LouisianaBayou/Heights/versions/whitepaint/IT02_final.png | 2048x2048 L | d0eee23950669114 | 0.8188 (whitepaint) | chip_count | None |
+| tile designer best | designer (this session) | /Users/zenray/Create/Build/Productions/ZenRayHoudini/LouisianaBayou/Heights/CopDesigner/outputs/tile/tile_designer_best.png | 1254x1254 L | 5c251bcf4bb7fc55 | 0.4182 (tile) | aniso | 0.75236 |
+| tile old finals | Houdini loops of 10 October 2026 | /Users/zenray/Create/Build/Productions/ZenRayHoudini/LouisianaBayou/Heights/versions/tile/IT01.png | 1254x1254 L | 1f214a2a00afed6d | 0.8313 (tile) | aniso | None |

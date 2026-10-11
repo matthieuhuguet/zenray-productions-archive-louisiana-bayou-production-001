@@ -1,0 +1,25 @@
+{
+ "score": 0.75236,
+ "equiv": null,
+ "mean": 97.855,
+ "quantile_err": 12.714,
+ "grad_log_err": 2.0419,
+ "params": {
+  "x0": 0.0,
+  "y0": 0.0031499999999999983,
+  "pitch": 0.1647,
+  "margin": 0.0675,
+  "edge_soft": 0.006,
+  "seam_w": 0.025500000000000002,
+  "seam_depth": 0.3,
+  "level": 0.5625,
+  "jag": 0.15,
+  "jag_elementsize": 0.10500000000000002,
+  "grain_gain": 0.15,
+  "grain_width": 0.011875,
+  "grain_length": 65.0,
+  "grain_elementsize": 0.003,
+  "mean_trim": 0.00375
+ },
+ "updated": "2026-10-11T10:23:40"
+}
