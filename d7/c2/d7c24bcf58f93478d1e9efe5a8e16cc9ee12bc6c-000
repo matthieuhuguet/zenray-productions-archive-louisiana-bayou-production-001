@@ -1,0 +1,29 @@
+[Octane]      Octane Render for Houdini. Build 2026.5.0.0 (Build date: Sep 21 2026 10:21:52)
+[Octane] Octane API: 2026.5
+[Octane] HDK API: 22.0.368
+[Octane] Houdini host version: 22.0.368
+[Octane] Initializing Octane API
+[Octane] Octane API ready. Initialization time: 0.704 seconds
+[Octane] OCIO configuration ready. Initialization time: 0.007 seconds
+[Octane] Octane network rendering enabled. Initialization time: 0.000 seconds
+[Octane] WARNING: preferences file not found: /Users/zenray/Library/Preferences/houdini/22.0/octane.pref
+[Octane] 10:18:53 INFOR: [nodes] -------------  Registering Octane VOP nodes
+[Octane] 10:18:53 INFOR: [nodes] -------------  Octane VOP nodes registered
+[Octane] 10:18:53 INFOR: [nodes] -------------  Registering the plugin custom VOP nodes
+[Octane] 10:18:53 INFOR: [nodes] -------------  Plugin custom VOP nodes registered
+Traceback (most recent call last):
+  File "/Users/zenray/.claude/skills/zenray-cop-designer/tool/hou_compile.py", line 172, in <module>
+    main()
+    ~~~~^^
+  File "/Users/zenray/.claude/skills/zenray-cop-designer/tool/hou_compile.py", line 158, in main
+    problems = compile_graph(graph, args.png, args.res, args.net, args.hip)
+  File "/Users/zenray/.claude/skills/zenray-cop-designer/tool/hou_compile.py", line 134, in compile_graph
+    graph.check(catalog)
+    ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/zenray/.claude/skills/zenray-cop-designer/tool/cop_graph.py", line 88, in check
+    raise GraphError('graph %s is invalid:\n  ' % self.name + '\n  '.join(errors))
+cop_graph.GraphError: graph WhitepaintHeight is invalid:
+  nodes not feeding the output (dead code): W_level
+[Octane] 10:18:55 INFOR: [render] ------------   - Cleaning the scene. Full clean state 1
+[Octane] 10:18:55 INFOR: [render] ------------   - Scene including 0 items cleaned. 0 items deleted. 0 remaing items.
+[Octane] 10:18:55 INFOR: [api] ---------------  Closing the Octane API

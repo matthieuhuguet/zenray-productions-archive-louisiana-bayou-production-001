@@ -1,0 +1,30 @@
+[Octane]      Octane Render for Houdini. Build 2026.5.0.0 (Build date: Sep 21 2026 10:21:52)
+[Octane] Octane API: 2026.5
+[Octane] HDK API: 22.0.368
+[Octane] Houdini host version: 22.0.368
+[Octane] Initializing Octane API
+[Octane] Octane API ready. Initialization time: 0.823 seconds
+[Octane] OCIO configuration ready. Initialization time: 0.008 seconds
+[Octane] Octane network rendering enabled. Initialization time: 0.000 seconds
+[Octane] WARNING: preferences file not found: /Users/zenray/Library/Preferences/houdini/22.0/octane.pref
+[Octane] 10:20:22 INFOR: [nodes] -------------  Registering Octane VOP nodes
+[Octane] 10:20:22 INFOR: [nodes] -------------  Octane VOP nodes registered
+[Octane] 10:20:22 INFOR: [nodes] -------------  Registering the plugin custom VOP nodes
+[Octane] 10:20:22 INFOR: [nodes] -------------  Plugin custom VOP nodes registered
+oplib:/Cop/fractalnoise?Cop/fractalnoise Warning(23): error binding handle sidefx_transform2d because it doesn't exist.
+oplib:/Cop/fractalnoise?Cop/fractalnoise Warning(24): error binding handle sidefx_transform2d because it doesn't exist.
+CRASHED: 'equiv'
+Traceback (most recent call last):
+  File "/Users/zenray/.claude/skills/zenray-cop-designer/tool/optimize.py", line 208, in <module>
+    main()
+    ~~~~^^
+  File "/Users/zenray/.claude/skills/zenray-cop-designer/tool/optimize.py", line 200, in main
+    search.run()
+    ~~~~~~~~~~^^
+  File "/Users/zenray/.claude/skills/zenray-cop-designer/tool/optimize.py", line 176, in run
+    base['score'], base['equiv'], base['quantile_err'], base['grad_log_err'], base['mean']), flush=True)
+                   ~~~~^^^^^^^^^
+KeyError: 'equiv'
+[Octane] 10:20:25 INFOR: [render] ------------   - Cleaning the scene. Full clean state 1
+[Octane] 10:20:25 INFOR: [render] ------------   - Scene including 0 items cleaned. 0 items deleted. 0 remaing items.
+[Octane] 10:20:25 INFOR: [api] ---------------  Closing the Octane API
