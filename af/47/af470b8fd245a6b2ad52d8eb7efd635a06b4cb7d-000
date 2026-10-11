@@ -1,0 +1,10 @@
+{
+ "graph": "/Users/zenray/Create/Build/Productions/ZenRayHoudini/LouisianaBayou/Heights/CopDesigner/runs/window_L05.json",
+ "png": "/Users/zenray/Create/Build/Productions/ZenRayHoudini/LouisianaBayou/Heights/CopDesigner/runs/window_L05_compiled.png",
+ "res": 1254,
+ "nodes": 25,
+ "houdini_version": "22.0.368",
+ "problems": [],
+ "seconds": 0.45,
+ "written": "2026-10-11T01:03:38"
+}

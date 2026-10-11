@@ -1,0 +1,742 @@
+{
+ "name": "WindowHeight",
+ "output": "L06_level",
+ "nodes": [
+  {
+   "id": "L01_y",
+   "type": "ramp",
+   "inputs": [],
+   "tag": "L01_bands",
+   "params": {
+    "signature": "f1",
+    "rampType": 0,
+    "method": 0,
+    "cycles": 1.0,
+    "phase": 0.0,
+    "rotation": 90.0,
+    "startposx": 0.0,
+    "startposy": 0.0,
+    "endposx": 1.0,
+    "endposy": 0.0
+   }
+  },
+  {
+   "id": "L01_bands",
+   "type": "remap",
+   "inputs": [
+    "L01_y"
+   ],
+   "tag": "L01_bands",
+   "params": {
+    "inputmin": 0.0,
+    "inputmax": 1.0,
+    "outputmin": 0.0,
+    "outputmax": 1.0,
+    "useramp": 1,
+    "ramp": {
+     "basis": "linear",
+     "keys": [
+      [
+       0.0,
+       0.49098039215686273
+      ],
+      [
+       0.183413,
+       0.49098039215686273
+      ],
+      [
+       0.185008,
+       0.09050980392156863
+      ],
+      [
+       0.186603,
+       0.4720716112531969
+      ],
+      [
+       0.334131,
+       0.4720716112531969
+      ],
+      [
+       0.335726,
+       0.10403921568627451
+      ],
+      [
+       0.337321,
+       0.40490196078431373
+      ],
+      [
+       0.374801,
+       0.40490196078431373
+      ],
+      [
+       0.376396,
+       0.13223529411764706
+      ],
+      [
+       0.37799,
+       0.35542483660130714
+      ],
+      [
+       0.41866,
+       0.35542483660130714
+      ],
+      [
+       0.420255,
+       0.3464313725490196
+      ],
+      [
+       0.42185,
+       0.40823529411764703
+      ],
+      [
+       0.438596,
+       0.40823529411764703
+      ],
+      [
+       0.440191,
+       0.05301960784313725
+      ],
+      [
+       0.441786,
+       0.46885154061624645
+      ],
+      [
+       0.57815,
+       0.46885154061624645
+      ],
+      [
+       0.579745,
+       0.0696078431372549
+      ],
+      [
+       0.58134,
+       0.31699346405228757
+      ],
+      [
+       0.604466,
+       0.31699346405228757
+      ],
+      [
+       0.606061,
+       0.17207843137254902
+      ],
+      [
+       0.607656,
+       0.43016339869281045
+      ],
+      [
+       0.6874,
+       0.43016339869281045
+      ],
+      [
+       0.688995,
+       0.059333333333333335
+      ],
+      [
+       0.69059,
+       0.20215686274509803
+      ],
+      [
+       0.705742,
+       0.20215686274509803
+      ],
+      [
+       0.707337,
+       0.19854901960784316
+      ],
+      [
+       0.708931,
+       0.4360130718954249
+      ],
+      [
+       0.787879,
+       0.4360130718954249
+      ],
+      [
+       0.789474,
+       0.05764705882352941
+      ],
+      [
+       0.791069,
+       0.22392156862745097
+      ],
+      [
+       0.807815,
+       0.22392156862745097
+      ],
+      [
+       0.80941,
+       0.19623529411764706
+      ],
+      [
+       0.811005,
+       0.43405228758169934
+      ],
+      [
+       0.889155,
+       0.43405228758169934
+      ],
+      [
+       0.89075,
+       0.0592156862745098
+      ],
+      [
+       0.892344,
+       0.21333333333333332
+      ],
+      [
+       0.908293,
+       0.21333333333333332
+      ],
+      [
+       0.909888,
+       0.18760784313725493
+      ],
+      [
+       0.911483,
+       0.43274509803921574
+      ],
+      [
+       1.0,
+       0.43274509803921574
+      ]
+     ]
+    }
+   }
+  },
+  {
+   "id": "L02_flake_noise",
+   "type": "fractalnoise",
+   "inputs": [],
+   "tag": "L02_flakes",
+   "params": {
+    "elementsize": 0.08470269112334443,
+    "oct": 4.0,
+    "rough": 0.55,
+    "amp": 0.5,
+    "center": 0.5
+   }
+  },
+  {
+   "id": "L02_flake_mask",
+   "type": "remap",
+   "inputs": [
+    "L02_flake_noise"
+   ],
+   "tag": "L02_flakes",
+   "params": {
+    "inputmin": 0.5283135817728793,
+    "inputmax": 0.5503135817728794,
+    "outputmin": 0.0,
+    "outputmax": 1.0,
+    "useramp": 1,
+    "ramp": {
+     "basis": "linear",
+     "keys": [
+      [
+       0.0,
+       0.0
+      ],
+      [
+       0.1,
+       0.028000000000000004
+      ],
+      [
+       0.2,
+       0.10400000000000002
+      ],
+      [
+       0.3,
+       0.21600000000000003
+      ],
+      [
+       0.4,
+       0.3520000000000001
+      ],
+      [
+       0.5,
+       0.5
+      ],
+      [
+       0.6,
+       0.6480000000000001
+      ],
+      [
+       0.7,
+       0.7839999999999999
+      ],
+      [
+       0.8,
+       0.8960000000000001
+      ],
+      [
+       0.9,
+       0.972
+      ],
+      [
+       1.0,
+       1.0
+      ]
+     ]
+    }
+   }
+  },
+  {
+   "id": "L02_flake_delta",
+   "type": "remap",
+   "inputs": [
+    "L02_flake_mask"
+   ],
+   "tag": "L02_flakes",
+   "params": {
+    "inputmin": 0.0,
+    "inputmax": 1.0,
+    "outputmin": 0.0,
+    "outputmax": 0.3279080117214037,
+    "useramp": 0
+   }
+  },
+  {
+   "id": "L02_plate",
+   "type": "remap",
+   "inputs": [
+    "L01_bands"
+   ],
+   "tag": "L02_flakes",
+   "params": {
+    "inputmin": 0.0,
+    "inputmax": 1.0,
+    "outputmin": -0.07019738474561826,
+    "outputmax": 0.9298026152543817,
+    "useramp": 0
+   }
+  },
+  {
+   "id": "L02_flakes",
+   "type": "blend",
+   "inputs": [
+    "L02_plate",
+    "L02_flake_delta"
+   ],
+   "tag": "L02_flakes",
+   "params": {
+    "mode": 3
+   }
+  },
+  {
+   "id": "L03_grain_noise",
+   "type": "fractalnoise",
+   "inputs": [],
+   "tag": "L03_grain",
+   "params": {
+    "elementsize": 0.00882931254987484,
+    "oct": 3.0,
+    "rough": 0.6,
+    "amp": 0.5,
+    "center": 0.5
+   }
+  },
+  {
+   "id": "L03_grain_streak",
+   "type": "streakblur",
+   "inputs": [
+    "L03_grain_noise"
+   ],
+   "tag": "L03_grain",
+   "params": {
+    "dirtype": 0,
+    "dirx": 1.0,
+    "diry": 0.0,
+    "units": 1,
+    "length_pixels": 80.625
+   }
+  },
+  {
+   "id": "L03_grain_delta",
+   "type": "remap",
+   "inputs": [
+    "L03_grain_streak"
+   ],
+   "tag": "L03_grain",
+   "params": {
+    "inputmin": 0.49,
+    "inputmax": 0.51,
+    "outputmin": 0.0,
+    "outputmax": 0.12000000000000001,
+    "useramp": 0
+   }
+  },
+  {
+   "id": "L03_plate",
+   "type": "remap",
+   "inputs": [
+    "L02_flakes"
+   ],
+   "tag": "L03_grain",
+   "params": {
+    "inputmin": 0.0,
+    "inputmax": 1.0,
+    "outputmin": -0.060000000000000005,
+    "outputmax": 0.94,
+    "useramp": 0
+   }
+  },
+  {
+   "id": "L03_grain",
+   "type": "blend",
+   "inputs": [
+    "L03_plate",
+    "L03_grain_delta"
+   ],
+   "tag": "L03_grain",
+   "params": {
+    "mode": 3
+   }
+  },
+  {
+   "id": "L04_y",
+   "type": "ramp",
+   "inputs": [],
+   "tag": "L04_bevel",
+   "params": {
+    "signature": "f1",
+    "rampType": 0,
+    "method": 0,
+    "cycles": 1.0,
+    "phase": 0.0,
+    "rotation": 90.0,
+    "startposx": 0.0,
+    "startposy": 0.0,
+    "endposx": 1.0,
+    "endposy": 0.0
+   }
+  },
+  {
+   "id": "L04_louver",
+   "type": "remap",
+   "inputs": [
+    "L04_y"
+   ],
+   "tag": "L04_bevel",
+   "params": {
+    "inputmin": 0.5606000294779842,
+    "inputmax": 0.5756193507311833,
+    "outputmin": 0.0,
+    "outputmax": 1.0,
+    "useramp": 1,
+    "ramp": {
+     "basis": "linear",
+     "keys": [
+      [
+       0.0,
+       0.0
+      ],
+      [
+       0.1,
+       0.028000000000000004
+      ],
+      [
+       0.2,
+       0.10400000000000002
+      ],
+      [
+       0.3,
+       0.21600000000000003
+      ],
+      [
+       0.4,
+       0.3520000000000001
+      ],
+      [
+       0.5,
+       0.5
+      ],
+      [
+       0.6,
+       0.6480000000000001
+      ],
+      [
+       0.7,
+       0.7839999999999999
+      ],
+      [
+       0.8,
+       0.8960000000000001
+      ],
+      [
+       0.9,
+       0.972
+      ],
+      [
+       1.0,
+       1.0
+      ]
+     ]
+    }
+   }
+  },
+  {
+   "id": "L04_x",
+   "type": "ramp",
+   "inputs": [],
+   "tag": "L04_bevel",
+   "params": {
+    "signature": "f1",
+    "rampType": 0,
+    "method": 0,
+    "cycles": 1.0,
+    "phase": 0.0,
+    "rotation": 0.0,
+    "startposx": 0.0,
+    "startposy": 0.0,
+    "endposx": 1.0,
+    "endposy": 0.0
+   }
+  },
+  {
+   "id": "L04_x_inv",
+   "type": "remap",
+   "inputs": [
+    "L04_x"
+   ],
+   "tag": "L04_bevel",
+   "params": {
+    "inputmin": 0.0,
+    "inputmax": 1.0,
+    "outputmin": 1.0,
+    "outputmax": 0.0,
+    "useramp": 0
+   }
+  },
+  {
+   "id": "L04_edge_dist",
+   "type": "blend",
+   "inputs": [
+    "L04_x",
+    "L04_x_inv"
+   ],
+   "tag": "L04_bevel",
+   "params": {
+    "mode": 13
+   }
+  },
+  {
+   "id": "L04_bevel",
+   "type": "remap",
+   "inputs": [
+    "L04_edge_dist"
+   ],
+   "tag": "L04_bevel",
+   "params": {
+    "inputmin": 0.0,
+    "inputmax": 1.0,
+    "outputmin": -0.1,
+    "outputmax": 0.1,
+    "useramp": 1,
+    "ramp": {
+     "basis": "monotone",
+     "keys": [
+      [
+       0.0,
+       1.4000000000000001
+      ],
+      [
+       0.001594896331738437,
+       1.0
+      ],
+      [
+       0.004784688995215311,
+       0.3
+      ],
+      [
+       0.011164274322169059,
+       0.15
+      ],
+      [
+       0.02073365231259968,
+       0.0
+      ],
+      [
+       0.030303030303030304,
+       0.10000000000000002
+      ],
+      [
+       0.03987240829346093,
+       0.3
+      ],
+      [
+       0.04784688995215311,
+       0.5
+      ],
+      [
+       0.06379585326953748,
+       0.5
+      ],
+      [
+       1.0,
+       0.5
+      ]
+     ]
+    }
+   }
+  },
+  {
+   "id": "L04_bevel_masked",
+   "type": "blend",
+   "inputs": [
+    "L04_bevel",
+    "L04_louver"
+   ],
+   "tag": "L04_bevel",
+   "params": {
+    "mode": 5
+   }
+  },
+  {
+   "id": "L04_bevel_on",
+   "type": "blend",
+   "inputs": [
+    "L03_grain",
+    "L04_bevel_masked"
+   ],
+   "tag": "L04_bevel",
+   "params": {
+    "mode": 3
+   }
+  },
+  {
+   "id": "L05_chip_noise",
+   "type": "fractalnoise",
+   "inputs": [],
+   "tag": "L05_chips",
+   "params": {
+    "elementsize": 0.006,
+    "oct": 3.0,
+    "rough": 0.6,
+    "amp": 0.5,
+    "center": 0.5
+   }
+  },
+  {
+   "id": "L05_chip_mask",
+   "type": "remap",
+   "inputs": [
+    "L05_chip_noise"
+   ],
+   "tag": "L05_chips",
+   "params": {
+    "inputmin": 0.560625,
+    "inputmax": 0.564625,
+    "outputmin": 0.0,
+    "outputmax": 1.0,
+    "useramp": 1,
+    "ramp": {
+     "basis": "linear",
+     "keys": [
+      [
+       0.0,
+       0.0
+      ],
+      [
+       0.1,
+       0.028000000000000004
+      ],
+      [
+       0.2,
+       0.10400000000000002
+      ],
+      [
+       0.3,
+       0.21600000000000003
+      ],
+      [
+       0.4,
+       0.3520000000000001
+      ],
+      [
+       0.5,
+       0.5
+      ],
+      [
+       0.6,
+       0.6480000000000001
+      ],
+      [
+       0.7,
+       0.7839999999999999
+      ],
+      [
+       0.8,
+       0.8960000000000001
+      ],
+      [
+       0.9,
+       0.972
+      ],
+      [
+       1.0,
+       1.0
+      ]
+     ]
+    }
+   }
+  },
+  {
+   "id": "L05_chip_delta",
+   "type": "remap",
+   "inputs": [
+    "L05_chip_mask"
+   ],
+   "tag": "L05_chips",
+   "params": {
+    "inputmin": 0.0,
+    "inputmax": 1.0,
+    "outputmin": 0.0,
+    "outputmax": 0.19375,
+    "useramp": 0
+   }
+  },
+  {
+   "id": "L05_plate",
+   "type": "remap",
+   "inputs": [
+    "L04_bevel_on"
+   ],
+   "tag": "L05_chips",
+   "params": {
+    "inputmin": 0.0,
+    "inputmax": 1.0,
+    "outputmin": -0.03439062500000001,
+    "outputmax": 0.965609375,
+    "useramp": 0
+   }
+  },
+  {
+   "id": "L05_chips",
+   "type": "blend",
+   "inputs": [
+    "L05_plate",
+    "L05_chip_delta"
+   ],
+   "tag": "L05_chips",
+   "params": {
+    "mode": 3
+   }
+  },
+  {
+   "id": "L06_level",
+   "type": "remap",
+   "inputs": [
+    "L05_chips"
+   ],
+   "tag": "L06_level",
+   "params": {
+    "inputmin": 0.0,
+    "inputmax": 1.0,
+    "outputmin": -0.01365660713798309,
+    "outputmax": 0.9863433928620169,
+    "useramp": 0
+   }
+  }
+ ]
+}

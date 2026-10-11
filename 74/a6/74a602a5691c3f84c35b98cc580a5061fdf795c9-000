@@ -1,0 +1,44 @@
+[Octane]      Octane Render for Houdini. Build 2026.5.0.0 (Build date: Sep 21 2026 10:21:52)
+[Octane] Octane API: 2026.5
+[Octane] HDK API: 22.0.368
+[Octane] Houdini host version: 22.0.368
+[Octane] Initializing Octane API
+[Octane] Octane API ready. Initialization time: 0.651 seconds
+[Octane] OCIO configuration ready. Initialization time: 0.007 seconds
+[Octane] Octane network rendering enabled. Initialization time: 0.000 seconds
+[Octane] WARNING: preferences file not found: /Users/zenray/Library/Preferences/houdini/22.0/octane.pref
+[Octane] 01:08:22 INFOR: [nodes] -------------  Registering Octane VOP nodes
+[Octane] 01:08:22 INFOR: [nodes] -------------  Octane VOP nodes registered
+[Octane] 01:08:22 INFOR: [nodes] -------------  Registering the plugin custom VOP nodes
+[Octane] 01:08:22 INFOR: [nodes] -------------  Plugin custom VOP nodes registered
+oplib:/Cop/fractalnoise?Cop/fractalnoise Warning(23): error binding handle sidefx_transform2d because it doesn't exist.
+oplib:/Cop/fractalnoise?Cop/fractalnoise Warning(24): error binding handle sidefx_transform2d because it doesn't exist.
+baseline score -0.02632 (equiv 0.37332, quantile 12.43, grad 1.345, mean 108.48)
+n 13 r0 grain_gain +1 -> score -0.01349 (equiv 0.3788, quantile 12.43, grad 1.288)
+n 17 r0 grain_width -1 -> score -0.00120 (equiv 0.3868, quantile 12.86, grad 1.209)
+n 18 r0 grain_width -1 -> score 0.01726 (equiv 0.3941, quantile 12.43, grad 1.139)
+n 20 r0 grain_length -1 -> score 0.01856 (equiv 0.3947, quantile 12.57, grad 1.133)
+n 21 r0 grain_length -1 -> score 0.02327 (equiv 0.3951, quantile 12.57, grad 1.119)
+n 22 r0 grain_length -1 -> score 0.02781 (equiv 0.3955, quantile 12.86, grad 1.097)
+n 23 r0 grain_length -1 -> score 0.02910 (equiv 0.3955, quantile 12.86, grad 1.094)
+n 25 r0 grain_elementsize -1 -> score 0.07764 (equiv 0.4125, quantile 12.57, grad 0.932)
+n 27 r0 chip_t0 -1 -> score 0.09258 (equiv 0.4144, quantile 14.00, grad 0.817)
+n 28 r0 chip_t0 -1 -> score 0.09804 (equiv 0.4106, quantile 15.29, grad 0.712)
+n 30 r0 chip_w +1 -> score 0.10079 (equiv 0.4116, quantile 15.14, grad 0.718)
+n 31 r0 chip_w +1 -> score 0.10125 (equiv 0.4119, quantile 14.86, grad 0.740)
+n 36 r0 chip_cover +1 -> score 0.10518 (equiv 0.4159, quantile 14.71, grad 0.738)
+n 37 r0 chip_cover +1 -> score 0.10656 (equiv 0.4144, quantile 14.71, grad 0.732)
+n 46 r0 bevel_scale +1 -> score 0.10678 (equiv 0.4142, quantile 14.71, grad 0.731)
+n 47 r0 bevel_scale +1 -> score 0.10701 (equiv 0.4135, quantile 14.71, grad 0.731)
+n 48 r0 bevel_scale +1 -> score 0.11011 (equiv 0.4130, quantile 14.43, grad 0.730)
+n 49 r0 bevel_scale +1 -> score 0.11024 (equiv 0.4128, quantile 14.43, grad 0.730)
+n 58 r0 flake_gain -1 -> score 0.13693 (equiv 0.4460, quantile 11.43, grad 0.762)
+n 59 r0 flake_gain -1 -> score 0.14141 (equiv 0.4613, quantile 10.43, grad 0.801)
+n 71 r0 chip_t0 -1 -> score 0.15575 (equiv 0.4745, quantile 11.00, grad 0.724)
+n 73 r0 chip_w +1 -> score 0.15848 (equiv 0.4720, quantile 10.86, grad 0.718)
+n 74 r0 chip_w +1 -> score 0.15901 (equiv 0.4714, quantile 10.86, grad 0.716)
+n 78 r0 chip_cover +1 -> score 0.16117 (equiv 0.4715, quantile 10.57, grad 0.718)
+n 83 r0 louver_top +1 -> score 0.16137 (equiv 0.4714, quantile 10.57, grad 0.718)
+n 84 r0 louver_top +1 -> score 0.16169 (equiv 0.4715, quantile 10.57, grad 0.718)
+n 97 r0 flake_gain -1 -> score 0.16309 (equiv 0.4838, quantile 10.43, grad 0.733)
+n 110 r0 chip_w -1 -> score 0.17124 (equiv 0.4864, quantile 10.29, grad 0.707)
