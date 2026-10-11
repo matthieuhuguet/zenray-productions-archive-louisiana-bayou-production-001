@@ -33,21 +33,25 @@ def mk(m, cls, x, y, **kw):
 m = get_mat('M_LB_Surface'); X = unreal.MaterialExpressionTextureSampleParameter2D
 bct = mk(m, X, -900, -300, parameter_name='BaseColorTexture', texture=WHITE, sampler_type=C.SAMPLERTYPE_COLOR)
 tint = mk(m, unreal.MaterialExpressionVectorParameter, -900, -50, parameter_name='BaseColorTint', default_value=unreal.LinearColor(1, 1, 1, 1))
-mul = mk(m, unreal.MaterialExpressionMultiply, -500, -200); conn(bct, 'RGB', mul, 'A'); conn(tint, '', mul, 'B'); prop(mul, '', unreal.MaterialProperty.MP_BASE_COLOR)
+# 11 October 2026 : Substrate is active in this project, direct connect_material_property(MP_BASE_COLOR) rendered uniform grey; everything goes through MakeMaterialAttributes (proven on CeramicAd and Lily).
+mma = mk(m, unreal.MaterialExpressionMakeMaterialAttributes, -150, 200)
+mul = mk(m, unreal.MaterialExpressionMultiply, -500, -200); conn(bct, 'RGB', mul, 'A'); conn(tint, '', mul, 'B'); conn(mul, '', mma, 'BaseColor')
 rs = mk(m, unreal.MaterialExpressionScalarParameter, -900, 150, parameter_name='Roughness', default_value=0.8)
-rt = mk(m, X, -900, 250, parameter_name='RoughnessTexture', texture=WHITE, sampler_type=C.SAMPLERTYPE_MASKS)
+# 11 October 2026 : the default texture of a Masks sampler must itself be a linear TC_MASKS texture, an sRGB default (WhiteSquareTexture) makes the material fail to compile and every mesh falls back to the grey world grid.
+rt = mk(m, X, -900, 250, parameter_name='RoughnessTexture', texture=TEX['T_LB_RoofShingles_Roughness'], sampler_type=C.SAMPLERTYPE_MASKS)
 rw = mk(m, unreal.MaterialExpressionScalarParameter, -900, 500, parameter_name='RoughnessTextureWeight', default_value=0.0)
-rl = mk(m, unreal.MaterialExpressionLinearInterpolate, -500, 200); conn(rs, '', rl, 'A'); conn(rt, 'R', rl, 'B'); conn(rw, '', rl, 'Alpha'); prop(rl, '', unreal.MaterialProperty.MP_ROUGHNESS)
+rl = mk(m, unreal.MaterialExpressionLinearInterpolate, -500, 200); conn(rs, '', rl, 'A'); conn(rt, 'R', rl, 'B'); conn(rw, '', rl, 'Alpha'); conn(rl, '', mma, 'Roughness')
 nt = mk(m, X, -900, 650, parameter_name='NormalTexture', texture=FLAT, sampler_type=C.SAMPLERTYPE_NORMAL)
 ns = mk(m, unreal.MaterialExpressionScalarParameter, -900, 900, parameter_name='NormalStrength', default_value=0.0)
 up = mk(m, unreal.MaterialExpressionConstant3Vector, -900, 1000, constant=unreal.LinearColor(0, 0, 1, 1))
-nl = mk(m, unreal.MaterialExpressionLinearInterpolate, -500, 700); conn(up, '', nl, 'A'); conn(nt, 'RGB', nl, 'B'); conn(ns, '', nl, 'Alpha'); prop(nl, '', unreal.MaterialProperty.MP_NORMAL)
+nl = mk(m, unreal.MaterialExpressionLinearInterpolate, -500, 700); conn(up, '', nl, 'A'); conn(nt, 'RGB', nl, 'B'); conn(ns, '', nl, 'Alpha'); conn(nl, '', mma, 'Normal')
+m.set_editor_property('use_material_attributes', True); prop(mma, '', unreal.MaterialProperty.MP_MATERIAL_ATTRIBUTES)
 mel.recompile_material(m); eal.save_loaded_asset(m)
 # ---- M_LB_Glass : translucent, two sided
 g = get_mat('M_LB_Glass')
-gc = mk(g, unreal.MaterialExpressionVectorParameter, -600, 0, parameter_name='BaseColorTint', default_value=unreal.LinearColor(0.35, 0.42, 0.45, 1)); prop(gc, '', unreal.MaterialProperty.MP_BASE_COLOR)
-gr = mk(g, unreal.MaterialExpressionScalarParameter, -600, 200, parameter_name='Roughness', default_value=0.08); prop(gr, '', unreal.MaterialProperty.MP_ROUGHNESS)
-go = mk(g, unreal.MaterialExpressionScalarParameter, -600, 350, parameter_name='Opacity', default_value=0.25); prop(go, '', unreal.MaterialProperty.MP_OPACITY)
+gc = mk(g, unreal.MaterialExpressionVectorParameter, -600, 0, parameter_name='BaseColorTint', default_value=unreal.LinearColor(0.35, 0.42, 0.45, 1)); gm = mk(g, unreal.MaterialExpressionMakeMaterialAttributes, -150, 200); conn(gc, '', gm, 'BaseColor')
+gr = mk(g, unreal.MaterialExpressionScalarParameter, -600, 200, parameter_name='Roughness', default_value=0.08); conn(gr, '', gm, 'Roughness')
+go = mk(g, unreal.MaterialExpressionScalarParameter, -600, 350, parameter_name='Opacity', default_value=0.25); conn(go, '', gm, 'Opacity'); g.set_editor_property('use_material_attributes', True); prop(gm, '', unreal.MaterialProperty.MP_MATERIAL_ATTRIBUTES)
 g.set_editor_property('blend_mode', unreal.BlendMode.BLEND_TRANSLUCENT); g.set_editor_property('two_sided', True)
 mel.recompile_material(g); eal.save_loaded_asset(g)
 PARENT = {'M_LB_Surface': m, 'M_LB_Glass': g}
