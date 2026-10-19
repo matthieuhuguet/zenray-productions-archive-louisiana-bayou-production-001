@@ -1,10 +1,10 @@
 {
- "score": 0.999763,
+ "score": 0.999414,
  "weakest": "uv:stretch",
  "components": {
   "uv:present": 1.0,
-  "uv:density": 1.0,
-  "uv:stretch": 0.999763,
+  "uv:density": 0.999987,
+  "uv:stretch": 0.999414,
   "uv:no_flip": 1.0,
   "uv:not_mirrored": 1.0,
   "uv:region": 1.0,
@@ -23,32 +23,32 @@
     "target_px_per_m": 1024.0,
     "tol": 0.01,
     "tol_max": 0.1,
-    "exact_frac": 1.0,
-    "low_frac": 0.0,
+    "exact_frac": 0.9999874703325,
+    "low_frac": 1.2529667499901318e-05,
     "high_frac": 0.0,
-    "px_per_m_min": 969.7883994570514,
-    "px_per_m_median": 1024.0008134506031,
-    "px_per_m_max": 1083.3486102253746,
-    "stretch_max": 0.26911686946376023,
+    "px_per_m_min": 913.7006607909095,
+    "px_per_m_median": 1023.9999562656915,
+    "px_per_m_max": 1076.7229121985795,
+    "stretch_max": 0.19153835249261708,
     "faces": 7000
    },
    "straight_area": 0.0,
    "straight_stretch_max": 0.0,
-   "stretch_over_2pc_area": 0.6645,
-   "islands": 1431,
-   "stacked_faces": 765,
+   "stretch_over_2pc_area": 0.66,
+   "islands": 1426,
+   "stacked_faces": 710,
    "overlap_px": 0,
-   "covered_px": 3998881,
-   "fill": 0.4767,
+   "covered_px": 4010886,
+   "fill": 0.4781,
    "padding_overlap_px": 0,
    "padding_check_radius_px": 15,
    "u_range": [
     0.0078,
-    0.9922
+    0.9918
    ],
    "v_range": [
     0.0156,
-    0.9831
+    0.9835
    ]
   }
  },
@@ -60,15 +60,15 @@
   "chains_mixed": 0,
   "mixed_detail": [],
   "consistency": 1.0,
-  "seams_m": 32.815,
-  "seams_on_smooth_m": 1.049,
+  "seams_m": 31.838,
+  "seams_on_smooth_m": 0.528,
   "sharp_kept_m": 1.552,
   "sharp_m": 21.151,
   "border_m": 0,
   "pass": true
  },
  "layout": {
-  "zruv_layout_uv": "{\"W\": 2048, \"H\": 1024, \"pad\": 16.0, \"islands\": 1431, \"stacked_possible\": 1372, \"stacked\": 765, \"fill\": 0.4892, \"unique_share\": 0.9797, \"lower_bound_px2\": 986623, \"next_smaller\": [1024, 1024], \"minimal_proven\": false, \"tried\": [{\"W\": 256, \"H\": 256, \"why\": \"area of the islands above the sheet\"}, {\"W\": 512, \"H\": 256, \"why\": \"area of the islands above the sheet\"}, {\"W\": 512, \"H\": 512, \"why\": \"area of the islands above the sheet\"}, {\"W\": 1024, \"H\": 512, \"why\": \"area of the islands above the sheet\"}, {\"W\": 1024, \"H\": 1024, \"why\": \"packing failed\"}], \"rows\": 1}",
+  "zruv_layout_uv": "{\"W\": 2048, \"H\": 1024, \"pad\": 16.0, \"islands\": 1426, \"stacked_possible\": 1372, \"stacked\": 710, \"fill\": 0.4902, \"unique_share\": 0.9812, \"lower_bound_px2\": 986169, \"next_smaller\": [1024, 1024], \"minimal_proven\": false, \"tried\": [{\"W\": 256, \"H\": 256, \"why\": \"area of the islands above the sheet\"}, {\"W\": 512, \"H\": 256, \"why\": \"area of the islands above the sheet\"}, {\"W\": 512, \"H\": 512, \"why\": \"area of the islands above the sheet\"}, {\"W\": 1024, \"H\": 512, \"why\": \"area of the islands above the sheet\"}, {\"W\": 1024, \"H\": 1024, \"why\": \"packing failed\"}], \"rows\": 1}",
   "zruv_straight_uv": "{\"charts\": 1383, \"grids\": 3, \"tubes\": 3, \"cut_long\": 0, \"worst_dev\": 0.0676, \"kink_faces\": 4, \"cut_at_kinks\": 1, \"kept_native\": 1369, \"straight_area\": 0.0311}"
  },
  "method": "M1",
@@ -89,8 +89,8 @@
  "targets": {
   "uv": 1024.0
  },
- "cook_s": 9.1,
- "score_s": 0.98,
+ "cook_s": 9.39,
+ "score_s": 0.93,
  "bake": null,
  "asset": "/obj/ZRUV_Assets/shaderball",
  "asset_scale": 1.0,
@@ -101,7 +101,7 @@
   "bars"
  ],
  "crease_effective": 35.04174041748047,
- "date": "19 October 2026 23:35",
+ "date": "19 October 2026 23:55",
  "params": {
   "asset_path": "/obj/ZRUV_Assets/shaderball",
   "asset_scale": 1.0,

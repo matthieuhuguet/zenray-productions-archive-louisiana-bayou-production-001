@@ -1,10 +1,10 @@
 {
- "score": 0.997658,
+ "score": 0.999489,
  "weakest": "uv:stretch",
  "components": {
   "uv:present": 1.0,
-  "uv:density": 0.999476,
-  "uv:stretch": 0.997658,
+  "uv:density": 0.999932,
+  "uv:stretch": 0.999489,
   "uv:no_flip": 1.0,
   "uv:not_mirrored": 1.0,
   "uv:region": 1.0,
@@ -22,31 +22,31 @@
     "target_px_per_m": 1024.0,
     "tol": 0.01,
     "tol_max": 0.1,
-    "exact_frac": 0.9994761402945758,
-    "low_frac": 0.00039898586245277557,
-    "high_frac": 0.00012487384297164044,
-    "px_per_m_min": 345.14093956669063,
-    "px_per_m_median": 1023.9999623437221,
-    "px_per_m_max": 1395.4942568942552,
-    "stretch_max": 0.8866348993710225,
+    "exact_frac": 0.9999323442133783,
+    "low_frac": 5.6304265686076385e-05,
+    "high_frac": 1.1351520935536253e-05,
+    "px_per_m_min": 810.0126373143331,
+    "px_per_m_median": 1024.0343737008043,
+    "px_per_m_max": 1156.7072609426577,
+    "stretch_max": 0.3806037573171369,
     "faces": 30418
    },
    "straight_area": 0.0,
    "straight_stretch_max": 0.0,
-   "stretch_over_2pc_area": 0.2782,
-   "islands": 475,
+   "stretch_over_2pc_area": 0.461,
+   "islands": 240,
    "overlap_px": 0,
-   "covered_px": 2062015,
-   "fill": 0.2458,
+   "covered_px": 8513263,
+   "fill": 0.5074,
    "padding_overlap_px": 0,
-   "padding_check_radius_px": 7,
+   "padding_check_radius_px": 15,
    "u_range": [
-    0.0039,
-    0.9958
+    0.0078,
+    0.9922
    ],
    "v_range": [
     0.0078,
-    0.524
+    0.9914
    ]
   }
  },
@@ -58,15 +58,15 @@
   "chains_mixed": 0,
   "mixed_detail": [],
   "consistency": 1.0,
-  "seams_m": 85.274,
-  "seams_on_smooth_m": 11.638,
-  "sharp_kept_m": 0.205,
+  "seams_m": 70.168,
+  "seams_on_smooth_m": 3.511,
+  "sharp_kept_m": 0.207,
   "sharp_m": 0.441,
   "border_m": 30.505,
   "pass": true
  },
  "layout": {
-  "zruv_layout_uv": "{\"W\": 4096, \"H\": 2048, \"pad\": 16.0, \"islands\": 475, \"stacked_possible\": 42, \"stacked\": 0, \"fill\": 0.261, \"unique_share\": 1.0, \"lower_bound_px2\": 2220638, \"next_smaller\": [2048, 2048], \"minimal_proven\": false, \"tried\": [{\"W\": 256, \"H\": 256, \"why\": \"area of the islands above the sheet\"}, {\"W\": 512, \"H\": 256, \"why\": \"area of the islands above the sheet\"}, {\"W\": 512, \"H\": 512, \"why\": \"area of the islands above the sheet\"}, {\"W\": 1024, \"H\": 512, \"why\": \"area of the islands above the sheet\"}, {\"W\": 1024, \"H\": 1024, \"why\": \"area of the islands above the sheet\"}, {\"W\": 2048, \"H\": 1024, \"why\": \"area of the islands above the sheet\"}, {\"W\": 2048, \"H\": 2048, \"why\": \"packing failed\"}], \"rows\": 0}",
+  "zruv_layout_uv": "{\"W\": 2048, \"H\": 2048, \"pad\": 16.0, \"islands\": 240, \"stacked_possible\": 67, \"stacked\": 0, \"fill\": 0.5212, \"unique_share\": 1.0, \"lower_bound_px2\": 1733583, \"next_smaller\": [2048, 1024], \"minimal_proven\": false, \"tried\": [{\"W\": 256, \"H\": 256, \"why\": \"area of the islands above the sheet\"}, {\"W\": 512, \"H\": 256, \"why\": \"area of the islands above the sheet\"}, {\"W\": 512, \"H\": 512, \"why\": \"area of the islands above the sheet\"}, {\"W\": 1024, \"H\": 512, \"why\": \"area of the islands above the sheet\"}, {\"W\": 1024, \"H\": 1024, \"why\": \"area of the islands above the sheet\"}, {\"W\": 2048, \"H\": 1024, \"why\": \"packing failed\"}], \"rows\": 0}",
   "zruv_straight_uv": "{\"charts\": 47, \"grids\": 0, \"tubes\": 0, \"cut_long\": 0, \"straight_area\": 0.0}"
  },
  "method": "M1",
@@ -74,7 +74,7 @@
  "contracts": [
   {
    "set": "uv",
-   "W": 4096,
+   "W": 2048,
    "H": 2048,
    "space": "sheet",
    "unique": true,
@@ -87,8 +87,8 @@
  "targets": {
   "uv": 1024.0
  },
- "cook_s": 10.19,
- "score_s": 1.15,
+ "cook_s": 9.07,
+ "score_s": 1.72,
  "bake": null,
  "asset": "/obj/ZRUV_Assets/manny_fbx",
  "asset_scale": 0.01,
@@ -97,7 +97,7 @@
   "body"
  ],
  "crease_effective": 126.63976287841797,
- "date": "19 October 2026 23:39",
+ "date": "19 October 2026 23:56",
  "params": {
   "asset_path": "/obj/ZRUV_Assets/manny_fbx",
   "asset_scale": 0.01,
