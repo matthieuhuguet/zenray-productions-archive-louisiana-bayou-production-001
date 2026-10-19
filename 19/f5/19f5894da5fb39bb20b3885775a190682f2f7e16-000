@@ -1,0 +1,245 @@
+{
+ "score": 0.001809,
+ "weakest": "uv:stretch",
+ "components": {
+  "uv:present": 1.0,
+  "uv:density": 0.005843,
+  "uv:stretch": 0.001809,
+  "uv:no_flip": 0.999955,
+  "uv:not_mirrored": 0.999955,
+  "uv:region": 1.0,
+  "uv:horizontal": 1.0,
+  "uv:no_overlap": 1.0,
+  "uv:padding": 1.0,
+  "seams:consistency": 0.992171,
+  "seams:robust_crease": 1.0
+ },
+ "reports": {
+  "uv": {
+   "texel": {
+    "set": "uv",
+    "target_px_per_m": 1024.0,
+    "tol": 0.01,
+    "exact_frac": 0.0058427191008402,
+    "low_frac": 0.8023435875165208,
+    "high_frac": 0.19181369338263912,
+    "px_per_m_min": 4.901845568988863,
+    "px_per_m_median": 330.31717118216386,
+    "px_per_m_max": 6026.293966259124,
+    "stretch_max": 6.475546942210705,
+    "faces": 12854
+   },
+   "straight_area": 0.0,
+   "straight_stretch_max": 0.0,
+   "stretch_over_2pc_area": 0.9982,
+   "islands": 13,
+   "overlap_px": 0,
+   "covered_px": 4174656,
+   "fill": 0.4977,
+   "padding_overlap_px": 0,
+   "padding_check_radius_px": 15,
+   "u_range": [
+    0.0078,
+    0.9727
+   ],
+   "v_range": [
+    0.0156,
+    0.8506
+   ]
+  }
+ },
+ "seams": {
+  "crease_requested": 30.0,
+  "crease_effective": 57.219,
+  "edges_near_requested": 181,
+  "ambiguous_edges": 0,
+  "chains_mixed": 41,
+  "mixed_detail": [
+   {
+    "angle": 11.293,
+    "edges": 3,
+    "cut": 2,
+    "minority_m": 0.0102
+   },
+   {
+    "angle": 11.034,
+    "edges": 2,
+    "cut": 1,
+    "minority_m": 0.0092
+   },
+   {
+    "angle": 14.643,
+    "edges": 2,
+    "cut": 1,
+    "minority_m": 0.0082
+   },
+   {
+    "angle": 13.197,
+    "edges": 2,
+    "cut": 1,
+    "minority_m": 0.0075
+   },
+   {
+    "angle": 11.293,
+    "edges": 3,
+    "cut": 2,
+    "minority_m": 0.0102
+   },
+   {
+    "angle": 25.915,
+    "edges": 2,
+    "cut": 1,
+    "minority_m": 0.013
+   },
+   {
+    "angle": 14.681,
+    "edges": 2,
+    "cut": 1,
+    "minority_m": 0.0082
+   },
+   {
+    "angle": 10.747,
+    "edges": 48,
+    "cut": 9,
+    "minority_m": 0.1023
+   },
+   {
+    "angle": 13.051,
+    "edges": 5,
+    "cut": 2,
+    "minority_m": 0.0225
+   },
+   {
+    "angle": 10.966,
+    "edges": 3,
+    "cut": 1,
+    "minority_m": 0.0099
+   },
+   {
+    "angle": 11.818,
+    "edges": 3,
+    "cut": 1,
+    "minority_m": 0.0114
+   },
+   {
+    "angle": 10.928,
+    "edges": 2,
+    "cut": 1,
+    "minority_m": 0.012
+   },
+   {
+    "angle": 11.086,
+    "edges": 2,
+    "cut": 1,
+    "minority_m": 0.0074
+   },
+   {
+    "angle": 12.178,
+    "edges": 2,
+    "cut": 1,
+    "minority_m": 0.0102
+   },
+   {
+    "angle": 13.051,
+    "edges": 5,
+    "cut": 2,
+    "minority_m": 0.0225
+   },
+   {
+    "angle": 12.911,
+    "edges": 2,
+    "cut": 1,
+    "minority_m": 0.0116
+   },
+   {
+    "angle": 10.747,
+    "edges": 48,
+    "cut": 14,
+    "minority_m": 0.163
+   },
+   {
+    "angle": 13.134,
+    "edges": 3,
+    "cut": 1,
+    "minority_m": 0.0114
+   },
+   {
+    "angle": 12.791,
+    "edges": 3,
+    "cut": 2,
+    "minority_m": 0.0109
+   },
+   {
+    "angle": 11.086,
+    "edges": 2,
+    "cut": 1,
+    "minority_m": 0.0074
+   }
+  ],
+  "consistency": 0.992171,
+  "seams_m": 2.164,
+  "seams_on_smooth_m": 0.416,
+  "sharp_kept_m": 0.274,
+  "sharp_m": 0.279,
+  "border_m": 0,
+  "pass": false
+ },
+ "layout": {
+  "zruv_layout_uv": "{\"W\": 2048, \"H\": 1024, \"pad\": 16.0, \"islands\": 13, \"stacked_possible\": 0, \"stacked\": 0, \"fill\": 0.5006, \"unique_share\": 1.0, \"lower_bound_px2\": 1052434, \"next_smaller\": [1024, 1024], \"minimal_proven\": true, \"tried\": [{\"W\": 256, \"H\": 256, \"why\": \"area of the islands above the sheet\"}, {\"W\": 512, \"H\": 256, \"why\": \"area of the islands above the sheet\"}, {\"W\": 512, \"H\": 512, \"why\": \"area of the islands above the sheet\"}, {\"W\": 1024, \"H\": 512, \"why\": \"area of the islands above the sheet\"}, {\"W\": 1024, \"H\": 1024, \"why\": \"area of the islands above the sheet\"}], \"rows\": 0}",
+  "zruv_straight_uv": "{\"charts\": 10, \"grids\": 0, \"tubes\": 0, \"cut_long\": 0, \"straight_area\": 0.0}"
+ },
+ "method": "M1",
+ "title": "UV unique et bake",
+ "contracts": [
+  {
+   "set": "uv",
+   "W": 2048,
+   "H": 1024,
+   "space": "sheet",
+   "unique": true,
+   "region": "sheet",
+   "padding_px": 16,
+   "straight_tol": 0.08
+  }
+ ],
+ "targets": {
+  "uv": 1024.0
+ },
+ "cook_s": 2.96,
+ "score_s": 0.89,
+ "bake": null,
+ "asset": "/obj/ZRUV_Assets/rubbertoy",
+ "asset_scale": 1.0,
+ "texel_density": 1024.0,
+ "families": [
+  "rubber"
+ ],
+ "crease_effective": 57.218997955322266,
+ "date": "19 October 2026 22:48",
+ "params": {
+  "asset_path": "/obj/ZRUV_Assets/rubbertoy",
+  "asset_scale": 1.0,
+  "asset_area_m2": 1.0,
+  "texel_density": 1024.0,
+  "families": "*:rubber",
+  "density_tol": 0.01,
+  "stretch_tol": 0.02,
+  "crease_deg": 30.0,
+  "crease_margin": 1.0,
+  "smooth_deg": 10.0,
+  "m1_sheet_px": 0,
+  "m1_stack": 1,
+  "m1_unstack": 1,
+  "m1_unique_pieces": "",
+  "m1_flatten": 1,
+  "m1_bake": 1,
+  "m1_allow_rect": 1,
+  "m1_bake_scale": 1.0,
+  "m2_tile_px": 2048,
+  "m2_grain": "pillar:up sign:h",
+  "m2_stitch": 1,
+  "m2_seed": 7,
+  "m2_breakup_size_m": 0.8,
+  "m2_flatten": 1
+ }
+}
