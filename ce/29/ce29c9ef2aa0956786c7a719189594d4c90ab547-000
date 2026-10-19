@@ -1,10 +1,10 @@
 {
- "score": 0.206982,
- "weakest": "uv:stretch",
+ "score": 0.924311,
+ "weakest": "seams:consistency",
  "components": {
   "uv:present": 1.0,
-  "uv:density": 0.321839,
-  "uv:stretch": 0.206982,
+  "uv:density": 1.0,
+  "uv:stretch": 0.999826,
   "uv:no_flip": 1.0,
   "uv:not_mirrored": 1.0,
   "uv:region": 1.0,
@@ -12,32 +12,34 @@
   "uv:stack": 1.0,
   "uv:no_overlap": 1.0,
   "uv:padding": 1.0,
-  "seams:consistency": 0.95916,
+  "seams:consistency": 0.924311,
   "seams:robust_crease": 1.0
  },
  "reports": {
   "uv": {
+   "organic_area": 0.9637,
    "texel": {
     "set": "uv",
     "target_px_per_m": 1024.0,
     "tol": 0.01,
-    "exact_frac": 0.32183915217688835,
-    "low_frac": 0.42489394995572044,
-    "high_frac": 0.2532668978673911,
-    "px_per_m_min": 150.15060142641101,
-    "px_per_m_median": 1023.9975672977104,
-    "px_per_m_max": 3385.9029569881727,
-    "stretch_max": 2.5576490678251953,
+    "tol_max": 0.1,
+    "exact_frac": 1.0,
+    "low_frac": 0.0,
+    "high_frac": 0.0,
+    "px_per_m_min": 986.5630297300333,
+    "px_per_m_median": 1024.0005451943719,
+    "px_per_m_max": 1068.104719446506,
+    "stretch_max": 0.12476447352848141,
     "faces": 7000
    },
-   "straight_area": 0.0311,
-   "straight_stretch_max": 0.0676,
-   "stretch_over_2pc_area": 0.8024,
-   "islands": 1413,
-   "stacked_faces": 511,
+   "straight_area": 0.0,
+   "straight_stretch_max": 0.0,
+   "stretch_over_2pc_area": 0.6598,
+   "islands": 1425,
+   "stacked_faces": 767,
    "overlap_px": 0,
-   "covered_px": 4053718,
-   "fill": 0.4832,
+   "covered_px": 4008108,
+   "fill": 0.4778,
    "padding_overlap_px": 0,
    "padding_check_radius_px": 15,
    "u_range": [
@@ -46,7 +48,7 @@
    ],
    "v_range": [
     0.0156,
-    0.9835
+    0.984
    ]
   }
  },
@@ -55,7 +57,7 @@
   "crease_effective": 35.042,
   "edges_near_requested": 74,
   "ambiguous_edges": 0,
-  "chains_mixed": 57,
+  "chains_mixed": 94,
   "mixed_detail": [
    {
     "angle": 11.357,
@@ -64,22 +66,16 @@
     "minority_m": 0.0169
    },
    {
+    "angle": 11.353,
+    "edges": 2,
+    "cut": 1,
+    "minority_m": 0.0168
+   },
+   {
     "angle": 11.357,
     "edges": 4,
     "cut": 1,
     "minority_m": 0.0169
-   },
-   {
-    "angle": 13.235,
-    "edges": 2,
-    "cut": 1,
-    "minority_m": 0.0221
-   },
-   {
-    "angle": 11.342,
-    "edges": 2,
-    "cut": 1,
-    "minority_m": 0.0168
    },
    {
     "angle": 11.353,
@@ -88,28 +84,34 @@
     "minority_m": 0.0168
    },
    {
+    "angle": 11.357,
+    "edges": 4,
+    "cut": 1,
+    "minority_m": 0.0169
+   },
+   {
+    "angle": 11.342,
+    "edges": 2,
+    "cut": 1,
+    "minority_m": 0.0168
+   },
+   {
+    "angle": 11.357,
+    "edges": 4,
+    "cut": 1,
+    "minority_m": 0.0169
+   },
+   {
     "angle": 10.4,
     "edges": 24,
-    "cut": 3,
-    "minority_m": 0.086
+    "cut": 5,
+    "minority_m": 0.1434
    },
    {
     "angle": 10.38,
     "edges": 24,
-    "cut": 7,
-    "minority_m": 0.2141
-   },
-   {
-    "angle": 14.83,
-    "edges": 3,
-    "cut": 1,
-    "minority_m": 0.022
-   },
-   {
-    "angle": 14.83,
-    "edges": 3,
     "cut": 2,
-    "minority_m": 0.022
+    "minority_m": 0.0612
    },
    {
     "angle": 14.83,
@@ -127,67 +129,67 @@
     "angle": 14.83,
     "edges": 3,
     "cut": 2,
+    "minority_m": 0.022
+   },
+   {
+    "angle": 14.83,
+    "edges": 3,
+    "cut": 2,
+    "minority_m": 0.022
+   },
+   {
+    "angle": 14.83,
+    "edges": 3,
+    "cut": 1,
+    "minority_m": 0.022
+   },
+   {
+    "angle": 14.83,
+    "edges": 3,
+    "cut": 2,
+    "minority_m": 0.022
+   },
+   {
+    "angle": 14.83,
+    "edges": 3,
+    "cut": 1,
     "minority_m": 0.022
    },
    {
     "angle": 10.372,
     "edges": 24,
-    "cut": 19,
-    "minority_m": 0.1566
+    "cut": 15,
+    "minority_m": 0.2818
    },
    {
     "angle": 10.407,
     "edges": 24,
-    "cut": 2,
-    "minority_m": 0.0558
+    "cut": 3,
+    "minority_m": 0.0838
    },
    {
     "angle": 10.612,
     "edges": 72,
-    "cut": 24,
-    "minority_m": 0.505
+    "cut": 28,
+    "minority_m": 0.5884
    },
    {
-    "angle": 10.5,
-    "edges": 24,
-    "cut": 4,
-    "minority_m": 0.0648
-   },
-   {
-    "angle": 10.19,
-    "edges": 37,
+    "angle": 13.278,
+    "edges": 4,
     "cut": 1,
-    "minority_m": 0.0062
-   },
-   {
-    "angle": 10.195,
-    "edges": 36,
-    "cut": 12,
-    "minority_m": 0.0311
-   },
-   {
-    "angle": 11.805,
-    "edges": 66,
-    "cut": 1,
-    "minority_m": 0.0057
-   },
-   {
-    "angle": 23.696,
-    "edges": 2,
-    "cut": 1,
-    "minority_m": 0.0041
+    "minority_m": 0.0302
    }
   ],
-  "consistency": 0.95916,
-  "seams_m": 27.279,
-  "seams_on_smooth_m": 0.418,
-  "sharp_kept_m": 1.089,
+  "consistency": 0.924311,
+  "seams_m": 32.211,
+  "seams_on_smooth_m": 1.08,
+  "sharp_kept_m": 3.742,
   "sharp_m": 21.151,
   "border_m": 0,
   "pass": false
  },
  "layout": {
-  "zruv_layout_uv": "{\"W\": 2048, \"H\": 1024, \"pad\": 16.0, \"islands\": 1413, \"stacked_possible\": 1370, \"stacked\": 511, \"fill\": 0.4934, \"unique_share\": 0.9865, \"lower_bound_px2\": 1054440, \"next_smaller\": [1024, 1024], \"minimal_proven\": true, \"tried\": [{\"W\": 256, \"H\": 256, \"why\": \"area of the islands above the sheet\"}, {\"W\": 512, \"H\": 256, \"why\": \"area of the islands above the sheet\"}, {\"W\": 512, \"H\": 512, \"why\": \"area of the islands above the sheet\"}, {\"W\": 1024, \"H\": 512, \"why\": \"area of the islands above the sheet\"}, {\"W\": 1024, \"H\": 1024, \"why\": \"area of the islands above the sheet\"}], \"rows\": 3}",
+  "zruv_layout_uv": "{\"W\": 2048, \"H\": 1024, \"pad\": 16.0, \"islands\": 1425, \"stacked_possible\": 1368, \"stacked\": 767, \"fill\": 0.4893, \"unique_share\": 0.9797, \"lower_bound_px2\": 998268, \"next_smaller\": [1024, 1024], \"minimal_proven\": false, \"tried\": [{\"W\": 256, \"H\": 256, \"why\": \"area of the islands above the sheet\"}, {\"W\": 512, \"H\": 256, \"why\": \"area of the islands above the sheet\"}, {\"W\": 512, \"H\": 512, \"why\": \"area of the islands above the sheet\"}, {\"W\": 1024, \"H\": 512, \"why\": \"area of the islands above the sheet\"}, {\"W\": 1024, \"H\": 1024, \"why\": \"packing failed\"}], \"rows\": 3}",
   "zruv_straight_uv": "{\"charts\": 1383, \"grids\": 3, \"tubes\": 3, \"cut_long\": 0, \"worst_dev\": 0.0676, \"kink_faces\": 4, \"cut_at_kinks\": 1, \"kept_native\": 1369, \"straight_area\": 0.0311}"
  },
  "method": "M1",
@@ -201,14 +203,15 @@
    "unique": true,
    "region": "sheet",
    "padding_px": 16,
-   "straight_tol": 0.08
+   "straight_tol": 0.08,
+   "organic_tol": 0.1
   }
  ],
  "targets": {
   "uv": 1024.0
  },
- "cook_s": 9.7,
- "score_s": 0.86,
+ "cook_s": 70.71,
+ "score_s": 0.98,
  "bake": null,
  "asset": "/obj/ZRUV_Assets/shaderball",
  "asset_scale": 1.0,
@@ -219,7 +222,7 @@
   "bars"
  ],
  "crease_effective": 35.04174041748047,
- "date": "19 October 2026 22:48",
+ "date": "19 October 2026 23:11",
  "params": {
   "asset_path": "/obj/ZRUV_Assets/shaderball",
   "asset_scale": 1.0,
