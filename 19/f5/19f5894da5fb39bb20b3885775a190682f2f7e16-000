@@ -25,10 +25,10 @@
     "exact_frac": 1.0,
     "low_frac": 0.0,
     "high_frac": 0.0,
-    "px_per_m_min": 942.0333514058722,
+    "px_per_m_min": 942.0386031316949,
     "px_per_m_median": 1024.713672172089,
-    "px_per_m_max": 1079.826775476716,
-    "stretch_max": 0.09994151955123831,
+    "px_per_m_max": 1079.8273820003758,
+    "stretch_max": 0.09994315303072487,
     "faces": 12854
    },
    "straight_area": 0.0,
@@ -36,7 +36,7 @@
    "stretch_over_2pc_area": 0.7826,
    "islands": 49,
    "overlap_px": 0,
-   "covered_px": 4120525,
+   "covered_px": 4120519,
    "fill": 0.4912,
    "padding_overlap_px": 0,
    "padding_check_radius_px": 15,
@@ -60,13 +60,22 @@
   "consistency": 1.0,
   "seams_m": 13.15,
   "seams_on_smooth_m": 1.833,
-  "sharp_kept_m": 0.109,
-  "sharp_m": 0.279,
+  "sharp_kept_m": 0,
+  "sharp_m": 0,
   "border_m": 0,
   "pass": true
  },
+ "hard_edges": {
+  "source": "normals",
+  "hard_edges": 0,
+  "hard_m": 0,
+  "demoted_edges": 0,
+  "demoted_m": 0,
+  "narrow_parts": 0,
+  "narrowest_px": 16.0
+ },
  "layout": {
-  "zruv_layout_uv": "{\"W\": 2048, \"H\": 1024, \"pad\": 16.0, \"islands\": 49, \"stacked_possible\": 2, \"stacked\": 0, \"fill\": 0.4977, \"unique_share\": 1.0, \"lower_bound_px2\": 1039033, \"next_smaller\": [1024, 1024], \"minimal_proven\": false, \"tried\": [{\"W\": 256, \"H\": 256, \"why\": \"area of the islands above the sheet\"}, {\"W\": 512, \"H\": 256, \"why\": \"area of the islands above the sheet\"}, {\"W\": 512, \"H\": 512, \"why\": \"area of the islands above the sheet\"}, {\"W\": 1024, \"H\": 512, \"why\": \"area of the islands above the sheet\"}, {\"W\": 1024, \"H\": 1024, \"why\": \"packing failed\"}], \"rows\": 0}",
+  "zruv_layout_uv": "{\"W\": 2048, \"H\": 1024, \"pad\": 16.0, \"islands\": 49, \"stacked_possible\": 2, \"stacked\": 0, \"fill\": 0.4977, \"unique_share\": 1.0, \"mode\": \"unique\", \"lower_bound_px2\": 1195244, \"lower_bound_unique_px2\": 1195244, \"next_smaller\": [1024, 1024], \"minimal_proven\": true, \"tried\": [{\"W\": 256, \"H\": 256, \"pass\": \"unique\", \"why\": \"bound\"}, {\"W\": 512, \"H\": 256, \"pass\": \"unique\", \"why\": \"bound\"}, {\"W\": 512, \"H\": 512, \"pass\": \"unique\", \"why\": \"bound\"}, {\"W\": 1024, \"H\": 512, \"pass\": \"unique\", \"why\": \"bound\"}, {\"W\": 1024, \"H\": 1024, \"pass\": \"unique\", \"why\": \"bound\"}], \"rows\": 0}",
   "zruv_straight_uv": "{\"charts\": 10, \"grids\": 0, \"tubes\": 0, \"cut_long\": 0, \"straight_area\": 0.0}"
  },
  "method": "M1",
@@ -87,8 +96,8 @@
  "targets": {
   "uv": 1024.0
  },
- "cook_s": 2.97,
- "score_s": 0.91,
+ "cook_s": 2.16,
+ "score_s": 0.9,
  "bake": null,
  "asset": "/obj/ZRUV_Assets/rubbertoy",
  "asset_scale": 1.0,
@@ -97,7 +106,7 @@
   "rubber"
  ],
  "crease_effective": 57.218997955322266,
- "date": "19 October 2026 23:55",
+ "date": "20 October 2026 00:09",
  "params": {
   "asset_path": "/obj/ZRUV_Assets/rubbertoy",
   "asset_scale": 1.0,

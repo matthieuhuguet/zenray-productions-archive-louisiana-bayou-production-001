@@ -1,10 +1,10 @@
 {
- "score": 0.999489,
+ "score": 0.999497,
  "weakest": "uv:stretch",
  "components": {
   "uv:present": 1.0,
-  "uv:density": 0.999932,
-  "uv:stretch": 0.999489,
+  "uv:density": 0.999963,
+  "uv:stretch": 0.999497,
   "uv:no_flip": 1.0,
   "uv:not_mirrored": 1.0,
   "uv:region": 1.0,
@@ -22,22 +22,22 @@
     "target_px_per_m": 1024.0,
     "tol": 0.01,
     "tol_max": 0.1,
-    "exact_frac": 0.9999323442133783,
-    "low_frac": 5.6304265686076385e-05,
-    "high_frac": 1.1351520935536253e-05,
-    "px_per_m_min": 810.0126373143331,
-    "px_per_m_median": 1024.0343737008043,
-    "px_per_m_max": 1156.7072609426577,
-    "stretch_max": 0.3806037573171369,
+    "exact_frac": 0.9999627545372023,
+    "low_frac": 2.7844454983267272e-05,
+    "high_frac": 9.401007814535947e-06,
+    "px_per_m_min": 789.6896236706976,
+    "px_per_m_median": 1024.0362568508826,
+    "px_per_m_max": 2564.8543581324557,
+    "stretch_max": 3.3340281858236045,
     "faces": 30418
    },
    "straight_area": 0.0,
    "straight_stretch_max": 0.0,
-   "stretch_over_2pc_area": 0.461,
-   "islands": 240,
+   "stretch_over_2pc_area": 0.479,
+   "islands": 245,
    "overlap_px": 0,
-   "covered_px": 8513263,
-   "fill": 0.5074,
+   "covered_px": 8511132,
+   "fill": 0.5073,
    "padding_overlap_px": 0,
    "padding_check_radius_px": 15,
    "u_range": [
@@ -46,7 +46,7 @@
    ],
    "v_range": [
     0.0078,
-    0.9914
+    0.9843
    ]
   }
  },
@@ -58,16 +58,25 @@
   "chains_mixed": 0,
   "mixed_detail": [],
   "consistency": 1.0,
-  "seams_m": 70.168,
-  "seams_on_smooth_m": 3.511,
-  "sharp_kept_m": 0.207,
-  "sharp_m": 0.441,
+  "seams_m": 69.884,
+  "seams_on_smooth_m": 3.355,
+  "sharp_kept_m": 0,
+  "sharp_m": 0,
   "border_m": 30.505,
   "pass": true
  },
+ "hard_edges": {
+  "source": "normals",
+  "hard_edges": 0,
+  "hard_m": 0,
+  "demoted_edges": 0,
+  "demoted_m": 0,
+  "narrow_parts": 0,
+  "narrowest_px": 16.0
+ },
  "layout": {
-  "zruv_layout_uv": "{\"W\": 2048, \"H\": 2048, \"pad\": 16.0, \"islands\": 240, \"stacked_possible\": 67, \"stacked\": 0, \"fill\": 0.5212, \"unique_share\": 1.0, \"lower_bound_px2\": 1733583, \"next_smaller\": [2048, 1024], \"minimal_proven\": false, \"tried\": [{\"W\": 256, \"H\": 256, \"why\": \"area of the islands above the sheet\"}, {\"W\": 512, \"H\": 256, \"why\": \"area of the islands above the sheet\"}, {\"W\": 512, \"H\": 512, \"why\": \"area of the islands above the sheet\"}, {\"W\": 1024, \"H\": 512, \"why\": \"area of the islands above the sheet\"}, {\"W\": 1024, \"H\": 1024, \"why\": \"area of the islands above the sheet\"}, {\"W\": 2048, \"H\": 1024, \"why\": \"packing failed\"}], \"rows\": 0}",
-  "zruv_straight_uv": "{\"charts\": 47, \"grids\": 0, \"tubes\": 0, \"cut_long\": 0, \"straight_area\": 0.0}"
+  "zruv_layout_uv": "{\"W\": 2048, \"H\": 2048, \"pad\": 16.0, \"islands\": 245, \"stacked_possible\": 65, \"stacked\": 0, \"fill\": 0.521, \"unique_share\": 1.0, \"mode\": \"unique\", \"lower_bound_px2\": 2635616, \"lower_bound_unique_px2\": 2635616, \"next_smaller\": [2048, 1024], \"minimal_proven\": true, \"tried\": [{\"W\": 256, \"H\": 256, \"pass\": \"unique\", \"why\": \"bound\"}, {\"W\": 512, \"H\": 256, \"pass\": \"unique\", \"why\": \"bound\"}, {\"W\": 512, \"H\": 512, \"pass\": \"unique\", \"why\": \"bound\"}, {\"W\": 1024, \"H\": 512, \"pass\": \"unique\", \"why\": \"bound\"}, {\"W\": 1024, \"H\": 1024, \"pass\": \"unique\", \"why\": \"bound\"}, {\"W\": 2048, \"H\": 1024, \"pass\": \"unique\", \"why\": \"bound\"}], \"rows\": 0}",
+  "zruv_straight_uv": "{\"charts\": 45, \"grids\": 0, \"tubes\": 0, \"cut_long\": 0, \"straight_area\": 0.0}"
  },
  "method": "M1",
  "title": "UV unique et bake",
@@ -87,8 +96,8 @@
  "targets": {
   "uv": 1024.0
  },
- "cook_s": 9.07,
- "score_s": 1.72,
+ "cook_s": 4.19,
+ "score_s": 1.7,
  "bake": null,
  "asset": "/obj/ZRUV_Assets/manny_fbx",
  "asset_scale": 0.01,
@@ -97,7 +106,7 @@
   "body"
  ],
  "crease_effective": 126.63976287841797,
- "date": "19 October 2026 23:56",
+ "date": "20 October 2026 00:10",
  "params": {
   "asset_path": "/obj/ZRUV_Assets/manny_fbx",
   "asset_scale": 0.01,
